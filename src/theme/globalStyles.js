@@ -20,6 +20,10 @@ export default createGlobalStyle`
     font-family: Roboto, sans-serif;
     background-color: ${(props) => props.theme.white};
   }
+
+  .row {
+    width: 100%;
+  }
 `;
 
 export const theme = {

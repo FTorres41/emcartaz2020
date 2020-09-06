@@ -1,6 +1,11 @@
 import React from "react";
 import Header from "../../components/header";
+import Gallery from "./components/gallery";
 
 export default function Home() {
-  return <Header />;
+  return( 
+    <div>
+      <Header />
+      <Gallery />
+    </div>);
 }
