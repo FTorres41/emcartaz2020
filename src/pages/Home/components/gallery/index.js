@@ -5,19 +5,12 @@ import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import CoreStyles from 'react-awesome-slider/src/core/styles.scss';
 import AnimationStyles from 'react-awesome-slider/src/styled/fold-out-animation/fold-out-animation.scss';
 import { GalleryContainer } from './styled';
+import GetImage from '../../../../util/getImage';
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Gallery = () => {
     const [destaques, setDestaques] = useState([]);
-
-    async function GetImage (destaque) {
-        const url = destaque._links['wp:attachment'][0].href.split('v2')[1];
-        const { data }  = await api.get(url);
-        return data[0].guid.rendered;
-    }
-
-    
 
     useEffect(() => {
         async function BuildDestaques (data) {
@@ -34,7 +27,7 @@ const Gallery = () => {
                     link: dt.link
                 })
             }  
-            console.log(destaques);
+
             return destaques;
         }
 

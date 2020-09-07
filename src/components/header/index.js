@@ -27,7 +27,7 @@ const Header = () => {
         </Row>
         <TabsRow>
           <Col lg={12}>
-            <Tabs>
+            <Tabs value={false}>
               {categorias &&
                 categorias.map((categoria) => 
                 <HeaderTab key={categoria.id} label={categoria.name}/>

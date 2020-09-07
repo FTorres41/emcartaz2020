@@ -23,6 +23,7 @@ export default createGlobalStyle`
 
   .row {
     width: 100%;
+    margin: 0;
   }
 `;
 
@@ -39,4 +40,5 @@ export const theme = {
   yellow: "#ffcd07",
   lightblue: "#00aeef",
   lightgreen: "#a1cc3a",
+  gray: "#edeef0",
 };
