@@ -32,12 +32,15 @@ const YouTubeCard = () => {
         color={(props) => props.theme.pink}
       />
       <Content>
-        <YouTube video={videoId} autoplay={false} width={400} />
+        <YouTube video={videoId} autoplay={false} width={400} height={240} />
         <List>
           {videos &&
             videos.length > 0 &&
             videos.map((video) => (
-              <VideoItem key={video.snippet.resourceId.videoId}>
+              <VideoItem
+                key={video.snippet.resourceId.videoId}
+                onClick={() => setVideoId(video.snippet.resourceId.videoId)}
+              >
                 <AiFillYoutube size={20} />
                 <ListItemText>
                   {"  "}

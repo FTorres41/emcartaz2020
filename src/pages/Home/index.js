@@ -4,6 +4,7 @@ import Header from "../../components/header";
 import Footer from "../../components/footer";
 import YouTubeCard from "./components/youtubeCard";
 import InstagramCard from "./components/instagramCard";
+import FacebookCard from "./components/facebookCard";
 import Gallery from "./components/gallery";
 import Columnists from "./components/columnists";
 import LatestNews from "./components/latestNews";
@@ -31,7 +32,7 @@ export default function Home() {
       <ModuleContainer>
         <YouTubeCard />
         <InstagramCard />
-        <YouTubeCard />
+        <FacebookCard />
       </ModuleContainer>
       <ModuleContainer>
         {Categorias.slice(3, 6).map((categoria) => (
