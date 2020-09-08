@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import api from "../../services/baseApi";
 import { HeaderBar, HeaderTab, TabsRow } from "./styled";
 import Logo from "../logo";
@@ -6,6 +7,7 @@ import { Tabs } from '@material-ui/core';
 import { Row, Col } from 'react-flexbox-grid';
 
 const Header = () => {
+  const history = useHistory();
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ const Header = () => {
             <Tabs value={false}>
               {categorias &&
                 categorias.map((categoria) => 
-                <HeaderTab key={categoria.id} label={categoria.name}/>
+                <HeaderTab key={categoria.id} label={categoria.name} onClick={() => history.push(`/wordpress/categoria/${categoria.id}`)}/>
                 )}
             </Tabs>
           </Col>
