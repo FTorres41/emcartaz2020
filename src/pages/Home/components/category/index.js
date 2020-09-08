@@ -38,21 +38,21 @@ const HomeCategory = ({ id, color, nome }) => {
 
   return (
     <Container>
-    <SectionTitle color={color} value={nome} />
-    <Content>
+      <SectionTitle color={color} value={nome} />
+      <Content>
         {itens &&
-        itens.length > 0 &&
-        itens.map((item) => (
+          itens.length > 0 &&
+          itens.map((item) => (
             <NewsCard
-                key={item.id}
-                id={item.id}
-                titulo={item.titulo}
-                imagem={item.imagem}
-                link={item.link}
-                size={200}
+              key={item.id}
+              id={item.id}
+              titulo={item.titulo}
+              imagem={item.imagem}
+              link={item.link}
+              size={200}
             />
-        ))}
-    </Content>
+          ))}
+      </Content>
     </Container>
   );
 };

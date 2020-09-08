@@ -6,7 +6,7 @@ import SectionTitle from "../../../../components/sectionTitle";
 import { List, ListItemText } from "@material-ui/core";
 import { AiFillYoutube } from "react-icons/ai";
 
-const YouTubeCard = () => {
+const InstagramCard = () => {
   const [videoId, setVideoId] = useState("");
   const [videos, setVideos] = useState([]);
 
@@ -27,10 +27,7 @@ const YouTubeCard = () => {
 
   return (
     <Container>
-      <SectionTitle
-        value={"TV Em Cartaz"}
-        color={(props) => props.theme.pink}
-      />
+      <SectionTitle value={"Instagram"} color={(props) => props.theme.purple} />
       <Content>
         <YouTube video={videoId} autoplay={false} width={400} />
         <List>
@@ -51,4 +48,4 @@ const YouTubeCard = () => {
   );
 };
 
-export default YouTubeCard;
+export default InstagramCard;

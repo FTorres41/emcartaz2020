@@ -42,7 +42,7 @@ const LatestNews = () => {
         <Row>
       <SectionTitle
         value={"Últimas notícias"}
-        color={(props) => props.theme.blue}
+        color={(props) => props ? props.theme.blue : ''}
       />
       </Row>
       <Content>
