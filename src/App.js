@@ -5,10 +5,10 @@ import GlobalStyle, { theme } from "./theme/globalStyles";
 
 function App() {
   return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Routes />
-      </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Routes />
+    </ThemeProvider>
   );
 }
 
