@@ -7,7 +7,6 @@ import MinhaPlaylist from "../../../../assets/minha-playlist-2.png";
 import OnTheRocks from "../../../../assets/on-the-rocks-home.png";
 import SetimaArte from "../../../../assets/setima-arte.png";
 import TechGeek from "../../../../assets/techgeek.png";
-import { Row } from "react-flexbox-grid";
 import { Container, ColunaContainer, LogoRow } from "./styled";
 import Shuffle from "../../../../util/shuffleArray";
 

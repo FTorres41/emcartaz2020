@@ -24,7 +24,7 @@ const Header = () => {
       <div className="header-content">
         <Row>
           <Col lg={12}>
-            <Button outlined onClick={() => history.push(`/`)}>
+            <Button onClick={() => history.push(`/wordpress/`)}>
               <Logo />
             </Button>
           </Col>
@@ -37,7 +37,9 @@ const Header = () => {
                   <HeaderTab
                     key={categoria.id}
                     label={categoria.name}
-                    onClick={() => history.push(`/categoria/${categoria.id}`)}
+                    onClick={() =>
+                      history.push(`/categoria/${categoria.id}/pagina/1`)
+                    }
                   />
                 ))}
             </Tabs>

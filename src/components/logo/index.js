@@ -15,9 +15,7 @@ import Logo from "../../assets/logo_emcartaz.png";
 const LogoImage = () => {
   return (
     <LogoContainer>
-      {/* <a href="www.emcartaz.net"> */}
       <img src={Logo} alt="Em Cartaz" />
-      {/* </a> */}
     </LogoContainer>
   );
 };

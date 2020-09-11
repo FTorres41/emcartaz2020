@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Content /*, VideoItem*/ } from "./styled";
+import { Container, Content } from "./styled";
 import SectionTitle from "../../../../components/sectionTitle";
 
 const FacebookCard = () => {
@@ -14,8 +14,8 @@ const FacebookCard = () => {
           height="386"
           style={{ border: "none", overflow: "hidden" }}
           scrolling="no"
-          frameborder="0"
-          allowTransparency="true"
+          frameBorder="0"
+          // allowTransparency="true"
           allow="encrypted-media"
         ></iframe>
       </Content>

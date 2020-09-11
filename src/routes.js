@@ -6,7 +6,7 @@ import CategoryPage from "./pages/Category";
 export default function Routes() {
   return (
     <Switch>
-      <Route component={CategoryPage} path="/categoria/:id" />
+      <Route component={CategoryPage} path="/categoria/:id/pagina/:pagina" />
       <Route component={Home} path="/" />
     </Switch>
   );

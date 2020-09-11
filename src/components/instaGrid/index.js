@@ -17,7 +17,7 @@ const styles = () => ({
 
 const InstaGrid = ({ classes, media, account, status }) => {
   return (
-    <Grid container spacing={32} className={classes.wrapper}>
+    <Grid container spacing={10} className={classes.wrapper}>
       {media &&
         status === "completed" &&
         media.map(({ displayImage, id, postLink, accessibilityCaption }) => (
