@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Container from "../../components/pageContainer";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
@@ -10,6 +10,8 @@ import GetImage from "../../util/getImage";
 import { Pagination } from "@material-ui/lab";
 
 const CategoryPage = () => {
+  const history = useHistory();
+
   const { id, pagina } = useParams();
   const [materias, setMaterias] = useState([]);
   const [page, setPage] = useState(pagina);
@@ -83,7 +85,12 @@ const CategoryPage = () => {
                     className="resumo"
                     dangerouslySetInnerHTML={materia.resumo}
                   />
-                  <div className="destaque">Leia mais</div>
+                  <div
+                    className="destaque"
+                    onClick={() => history.push(`/materia/${materia.id}`)}
+                  >
+                    Leia mais
+                  </div>
                 </div>
               </ArticleRow>
             ))}

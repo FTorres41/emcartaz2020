@@ -41,4 +41,5 @@ export const theme = {
   lightblue: "#00aeef",
   lightgreen: "#a1cc3a",
   gray: "#edeef0",
+  darkGray: "#8c8c8c",
 };
