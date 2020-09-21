@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import api from "../../../../services/baseApi";
 import AwesomeSlider from 'react-awesome-slider';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
@@ -11,6 +12,7 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Gallery = () => {
     const [destaques, setDestaques] = useState([]);
+    const history = useHistory();
 
     useEffect(() => {
         async function BuildDestaques (data) {
@@ -24,7 +26,8 @@ const Gallery = () => {
                     id: dt.id,
                     imagem: url,
                     titulo: dt.title.rendered,
-                    link: dt.link
+                    link: dt.link,
+                    categoria: dt.categories[0].id,
                 })
             }  
 
@@ -55,7 +58,7 @@ const Gallery = () => {
                         <div className="destaque-item" key={destaque.id}>
                             <img src={destaque.imagem} alt={destaque.titulo}/>
                             <div className="destaque-link">
-                                <a href={destaque.link}>{destaque.titulo}</a>
+                                <div onClick={() => history.push(`/categoria/${destaque.categoria}/materia/${destaque.id}`)}>{destaque.titulo}</div>
                             </div>
                         </div>
                     ))}

@@ -3,8 +3,24 @@ import styled from "styled-components";
 export const GalleryContainer = styled.div`
   .awssld__wrapper {
     height: 600px;
-    max-width: 1280px;
+    max-width: 1140px;
     margin: 0 auto;
+  }
+
+  @media(max-width: 800px) {
+    .awssld__wrapper {
+      height: 420px;
+      max-width: 768px;
+      margin: 0 auto;
+    }
+  }
+
+  @media(max-width: 400px) {
+    .awssld__wrapper {
+      height: 210px;
+      max-width: 375px;
+      margin: 0 auto;
+    }
   }
 
   .awssld__content {
@@ -17,7 +33,7 @@ export const GalleryContainer = styled.div`
       height: 100%;
 
       img {
-        max-width: 1280px;
+        max-width: 1140px;
         width: 100%;
       }
 
@@ -28,6 +44,7 @@ export const GalleryContainer = styled.div`
         top: 520px;
         position: absolute;
         height: 90px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 
         a {
           font-size: 36px;

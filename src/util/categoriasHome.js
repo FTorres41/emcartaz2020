@@ -7,7 +7,7 @@ const Categorias = [
     {
         id: 15,
         nome: 'Cinema',
-        cor: (props) => props.theme.lightgreen,
+        cor: (props) => props.theme.lightGreen,
     },
     {
         id: 10,
@@ -22,7 +22,7 @@ const Categorias = [
     {
         id: 12,
         nome: 'Infantil',
-        cor: (props) => props.theme.lightblue,
+        cor: (props) => props.theme.lightBlue,
     },
     {
         id: 14,

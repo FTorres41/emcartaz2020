@@ -27,7 +27,7 @@ export const HeaderTab = styled(Tab)`
 `
 
 export const TabsRow = styled(Row)`
-    background-color:  ${(props) => props.theme.blue};
+    background-color:  ${(props) => props.cor ? props.cor : props.theme.blue};
     flex-wrap: nowrap;
     left: 0;
     right: 0;
@@ -37,5 +37,10 @@ export const TabsRow = styled(Row)`
     .MuiTabs-root {
         max-width: 1280px;
         margin: 0 auto;
+    }
+
+    .MuiTabs-flexContainer {
+        display: flex;
+        justify-content: space-around;
     }
 `;

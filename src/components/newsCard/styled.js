@@ -7,6 +7,10 @@ export const StyledCard = styled(Card)`
     height: ${(props) => props.size}px;
     margin: 15px 0;
     background-color: ${(props) => props.theme.black} !important;
+
+    @media (max-width: 400px) {
+        margin: 15px auto;
+    }
 `;
 
 export const StyledActionArea = styled(CardActionArea)`

@@ -2,32 +2,35 @@ import React from 'react';
 import { AiFillYoutube, AiFillFacebook, AiFillInstagram } from 'react-icons/ai';
 
 const Categorias = [
-    {
-        nome: 'Home',
-        link: '/'
-    },
+    // {
+    //     nome: 'Home',
+    //     link: '/'
+    // },
     {
         nome: 'Sobre Nós',
-        link: '/'
+        link: '/sobre-nos'
     },
     {
         nome: 'Contato',
-        link: '/'
+        link: '/contato'
     },
     {
         nome: 'YouTube',
         icone: <AiFillYoutube size={22}/>,
-        link: '/',
+        link: 'https://www.youtube.com/channel/UCEiuMdaIdiKhlJe9NFygVUw',
+        newWindow: true,
     },
     {
         nome: 'Instagram',
         icone: <AiFillInstagram size={22}/>,
-        link: '/',
+        link: 'http://instagram.com/emcartaz',
+        newWindow: true,
     },
     {
         nome: 'Facebook',
         icone: <AiFillFacebook size={22}/>,
-        link: '/',
+        link: 'http://facebook.com/emcartaz.net',
+        newWindow: true,
     }
 ];
 

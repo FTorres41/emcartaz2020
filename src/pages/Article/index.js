@@ -7,11 +7,15 @@ import api from "../../services/baseApi";
 import { Article, Content } from "./styled";
 import moment from "moment";
 import GetImage from "../../util/getImage";
+import EstiloCategorias from "../../util/estiloCategorias";
 
 const ArticlePage = () => {
-  const { id } = useParams();
+  const { id, catId } = useParams();
   const [materia, setMateria] = useState({});
   const [loading, setLoading] = useState(true);
+
+  const estilos = EstiloCategorias;
+  const estilo = estilos.filter(x => x.id === parseInt(catId))[0];
 
   useEffect(() => {
     async function GetAutor(userId) {
@@ -20,7 +24,7 @@ const ArticlePage = () => {
       return data.name;
     }
 
-    async function GetCategoria(catId) {
+    async function GetCategoria() {
       const { data } = await api.get(`/categories/${catId}`);
 
       return data.name;
@@ -29,7 +33,7 @@ const ArticlePage = () => {
     async function buildItem(data) {
       const url = await GetImage(data);
       const autorData = await GetAutor(data.author);
-      const categoriaData = await GetCategoria(data.categories[0]);
+      const categoriaData = await GetCategoria();
 
       return {
         id: data.id,
@@ -53,14 +57,14 @@ const ArticlePage = () => {
     }
 
     loadMateria();
-  }, [id, setMateria, setLoading]);
+  }, [id, catId, setMateria, setLoading]);
 
   return (
     <Container>
-      <Header />
+      <Header cor={estilo ? estilo.cor : undefined} />
       <Content>
         {!loading && materia ? (
-          <Article>
+          <Article cor={estilo ? estilo.cor : undefined} >
             <div className="categoria">{materia.categoria}</div>
             <hr />
             <span className="autor">
@@ -73,7 +77,7 @@ const ArticlePage = () => {
           <></>
         )}
       </Content>
-      <Footer />
+      <Footer cor={estilo ? estilo.cor : undefined} />
     </Container>
   );
 };

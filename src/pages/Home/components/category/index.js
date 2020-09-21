@@ -48,8 +48,8 @@ const HomeCategory = ({ id, color, nome }) => {
               id={item.id}
               titulo={item.titulo}
               imagem={item.imagem}
-              link={item.link}
-              size={200}
+              categoria={id}
+              size={175}
             />
           ))}
       </Content>

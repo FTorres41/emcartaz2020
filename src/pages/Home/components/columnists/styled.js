@@ -2,11 +2,20 @@ import styled from "styled-components";
 import { Row } from "react-flexbox-grid";
 
 export const Container = styled.div`
-  max-width: 1280px;
+  max-width: 1140px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   padding-top: 30px;
+
+  @media(max-width: 800px) {
+    max-width: 580px;
+  }
+
+  @media (max-width: 400px) {
+    width: 365px;
+    margin: 0;
+  }
 `;
 
 export const ColunaContainer = styled.div`
@@ -14,7 +23,7 @@ export const ColunaContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 200px;
+  max-width: 180px;
 
   a {
     text-decoration: none;
@@ -35,11 +44,12 @@ export const ColunaContainer = styled.div`
 
   p {
     font-weight: 600;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   }
 `;
 
 export const LogoRow = styled(Row)`
   justify-content: space-between;
-  max-width: 1280px;
+  max-width: 1140px;
   margin: 0 auto !important;
 `;

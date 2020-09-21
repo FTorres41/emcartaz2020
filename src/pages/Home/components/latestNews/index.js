@@ -9,6 +9,8 @@ import { Container, Content } from "./styled";
 const LatestNews = () => {
   const [noticias, setNoticias] = useState([]);
 
+  const size = window.innerWidth >= 400 ? 280 : 180; 
+
   useEffect(() => {
     async function buildNoticias(data) {
       let news = [];
@@ -22,6 +24,7 @@ const LatestNews = () => {
           titulo: dt.title.rendered,
           imagem: imageUrl,
           link: dt.link,
+          categoria: dt.categories[0].id,
         });
       }
 
@@ -54,7 +57,8 @@ const LatestNews = () => {
             id={noticia.id}
             titulo={noticia.titulo}
             imagem={noticia.imagem}
-            link={noticia.link}
+            categoria={noticia.categoria}
+            size={size}
           />
         ))}
       </Content>

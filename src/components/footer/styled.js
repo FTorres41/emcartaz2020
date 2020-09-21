@@ -4,7 +4,7 @@ import { Tab } from '@material-ui/core';
 
 export const Container = styled(Row)`
     margin-top: 20px !important;
-    background-color:  ${(props) => props.theme.blue};
+    background-color:  ${(props) => props.cor ? props.cor : props.theme.blue};
     flex-wrap: nowrap;
     left: 0;
     right: 0;
@@ -12,7 +12,7 @@ export const Container = styled(Row)`
     position: initial;
 
     .MuiTabs-root {
-        max-width: 1280px;
+        max-width: 1140px;
         margin: 0 auto;
     }
 `;

@@ -12,6 +12,7 @@ import Shuffle from "../../../../util/shuffleArray";
 
 const Columnists = () => {
   const [colunistas, setColunistas] = useState([]);
+  const isMobile = window.innerWidth <= 500;
 
   useEffect(() => {
     const buildColunistas = (data) => {
@@ -50,7 +51,10 @@ const Columnists = () => {
         });
       });
 
-      return Shuffle(result);
+      if (isMobile)
+        return Shuffle(result).splice(0, 4);
+      else 
+        return Shuffle(result); 
     };
 
     async function loadColunistas() {
@@ -62,7 +66,7 @@ const Columnists = () => {
     }
 
     loadColunistas();
-  }, [setColunistas]);
+  }, [isMobile, setColunistas]);
 
   return (
     <Container>

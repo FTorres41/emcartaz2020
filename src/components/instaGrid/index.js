@@ -10,18 +10,18 @@ const styles = () => ({
   image: {
     width: "100%",
     height: "100%",
-    maxHeight: "133px",
-    maxWidth: "133px",
+    maxHeight: window.innerWidth <= 768 ? "193px" : "133px",
+    maxWidth: window.innerWidth <= 768 ? "193px" : "133px",
   },
 });
 
 const InstaGrid = ({ classes, media, account, status }) => {
   return (
-    <Grid container spacing={10} className={classes.wrapper}>
+    <Grid container className={classes.wrapper}>
       {media &&
         status === "completed" &&
         media.map(({ displayImage, id, postLink, accessibilityCaption }) => (
-          <Grid item xs={12} sm={6} md={4} key={id || displayImage}>
+          <Grid item xs={6} sm={4} md={4} key={id || displayImage}>
             <ButtonBase
               href={postLink || `https://www.instagram.com/${account}/`}
               target="_blank"

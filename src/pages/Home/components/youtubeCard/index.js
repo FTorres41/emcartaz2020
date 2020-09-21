@@ -10,6 +10,8 @@ const YouTubeCard = () => {
   const [videoId, setVideoId] = useState("");
   const [videos, setVideos] = useState([]);
 
+  const width = window.innerWidth > 500 && window.innerWidth <= 768 ? 560 : 360;
+
   useEffect(() => {
     async function loadVideos() {
       const { data } = await api.get(
@@ -26,13 +28,13 @@ const YouTubeCard = () => {
   }, []);
 
   return (
-    <Container>
+    <Container width={width}>
       <SectionTitle
         value={"TV Em Cartaz"}
         color={(props) => props.theme.pink}
       />
       <Content>
-        <YouTube video={videoId} autoplay={false} width={400} height={240} />
+        <YouTube video={videoId} autoplay={false} width={width} height={240} />
         <List>
           {videos &&
             videos.length > 0 &&

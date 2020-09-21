@@ -8,14 +8,6 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: space-between;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-
-  @media(max-width: 800px) {
-    max-width: 580px;
-  }
-
-  @media(max-width: 400px) {
-    max-width: 350px;
-  }
 `;
 
 export const Article = styled.div`
@@ -24,7 +16,7 @@ export const Article = styled.div`
   width: 100%;
 
   .categoria {
-    background-color: ${(props) => props.cor ? props.cor : props.theme.blue};
+    background-color: ${(props) => props.theme.blue};
     width: fit-content;
     color: ${(props) => props.theme.white};
     padding: 5px;
@@ -35,14 +27,8 @@ export const Article = styled.div`
 
   hr {
     margin: 0 !important;
-    color: ${(props) => props.cor ? props.cor : props.theme.blue};
-    border: 2px solid ${(props) => props.cor ? props.cor : props.theme.blue};
-  }
-
-  .autor {
-    font-size: 14px;
-    color: ${(props) => props.theme.darkGray};
-    margin: 10px 0;
+    color: ${(props) => props.theme.blue};
+    border: 2px solid ${(props) => props.theme.blue};
   }
 
   .aligncenter,
@@ -53,15 +39,21 @@ export const Article = styled.div`
     margin-right: auto;
   }
 
-  img {
-    vertical-align: middle;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-    border: 0;
+  ul {
+    margin-left: 15px;
+    margin-bottom: 10px;
   }
 
-  p {
-    margin-bottom: 10px;
+  .texto {
+    .conteudo {
+        min-height: 100px;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+    }
+  }
+
+  .row {
+    margin: 10px 0 !important;
   }
 `;

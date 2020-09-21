@@ -51,5 +51,5 @@
     ]
   },
   "homepage": "/wordpress/wp-content/themes/emcartaz2020",
-  "browserLaunchTo": "http://localhost/wordpress"
+  "browserLaunchTo": "http://localhost/wordpress/"
 }

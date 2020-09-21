@@ -30,9 +30,11 @@ export default function Home() {
         ))}
       </ModuleContainer>
       <ModuleContainer>
-        <YouTubeCard />
-        <InstagramCard />
-        <FacebookCard />
+        <div className="midias-sociais">
+          <YouTubeCard />
+          <InstagramCard />
+          <FacebookCard />
+        </div>
       </ModuleContainer>
       <ModuleContainer>
         {Categorias.slice(3, 6).map((categoria) => (

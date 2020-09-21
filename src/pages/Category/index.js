@@ -4,18 +4,23 @@ import Container from "../../components/pageContainer";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import api from "../../services/baseApi";
-import { ArticleRow, Content, PaginationContainer } from "./styled";
+import { Content, PaginationContainer } from "./styled";
 import moment from "moment";
 import GetImage from "../../util/getImage";
+import EstiloCategorias from "../../util/estiloCategorias";
 import { Pagination } from "@material-ui/lab";
+import NewsCard from "../../components/newsCard";
 
 const CategoryPage = () => {
   const history = useHistory();
 
-  const { id, pagina } = useParams();
+  const { catId, pagina } = useParams();
   const [materias, setMaterias] = useState([]);
   const [page, setPage] = useState(pagina);
   const [paginas, setPaginas] = useState(1);
+
+  const estilos = EstiloCategorias;
+  const estilo = estilos.filter(x => x.id === parseInt(catId))[0];
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -46,7 +51,7 @@ const CategoryPage = () => {
 
     async function loadMaterias() {
       const { data } = await api.get(
-        `/posts?page=${page}&per_page=10&categories=${id}`
+        `/posts?page=${page}&per_page=18&categories=${catId}`
       );
 
       const itens = await buildItens(data);
@@ -54,7 +59,7 @@ const CategoryPage = () => {
     }
 
     async function getTotals() {
-      const { data } = await api.get(`/categories/${id}`);
+      const { data } = await api.get(`/categories/${catId}`);
 
       const totalPag = Math.ceil(data.count / 10);
       setPaginas(totalPag);
@@ -62,44 +67,40 @@ const CategoryPage = () => {
 
     loadMaterias();
     getTotals();
-  }, [id, page, setMaterias]);
+  }, [catId, page, setMaterias]);
+
+  const size = window.innerWidth > 500 ? 300 : 175;
 
   return (
     <Container>
-      <Header />
-      <Content>
-        <div>
+      <Header cor={estilo ? estilo.cor : undefined}/>
+      <Content cor={estilo ? estilo.cor : undefined}>
           {materias &&
             materias.length > 0 &&
             materias.map((materia) => (
-              <ArticleRow key={materia.id}>
-                {materia.imagem ? (
-                  <img src={materia.imagem} alt={materia.titulo} />
-                ) : (
-                  <></>
-                )}
                 <div className="info">
                   <div className="destaque">{materia.data}</div>
-                  <h3>{materia.titulo}</h3>
-                  <div
-                    className="resumo"
-                    dangerouslySetInnerHTML={materia.resumo}
+                  <NewsCard
+                    key={materia.id}
+                    id={materia.id}
+                    categoria={catId}
+                    titulo={materia.titulo}
+                    imagem={materia.imagem}
+                    size={size}
                   />
                   <div
-                    className="destaque"
+                    className="destaque leia-mais"
                     onClick={() => history.push(`/materia/${materia.id}`)}
                   >
                     Leia mais
                   </div>
                 </div>
-              </ArticleRow>
             ))}
-        </div>
         <PaginationContainer>
           <Pagination count={paginas} onChange={handleChange} />
         </PaginationContainer>
       </Content>
-      <Footer />
+      <Footer cor={estilo ? estilo.cor : undefined} />
     </Container>
   );
 };
