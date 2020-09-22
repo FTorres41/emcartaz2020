@@ -21,6 +21,7 @@ const HomeCategory = ({ id, color, nome }) => {
           imagem: url,
           titulo: dt.title.rendered,
           link: dt.link,
+          slug: dt.slug,
         });
       }
 
@@ -49,6 +50,7 @@ const HomeCategory = ({ id, color, nome }) => {
               titulo={item.titulo}
               imagem={item.imagem}
               categoria={id}
+              slug={item.slug}
               size={175}
             />
           ))}

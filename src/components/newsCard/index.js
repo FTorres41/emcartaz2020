@@ -5,15 +5,12 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { StyledCard as Card, StyledActionArea as CardActionArea } from './styled';
 
-const NewsCard = ({ id, titulo, imagem, categoria, size}) => {
+const NewsCard = ({ id, titulo, imagem, categoria, categoriaSlug, size, slug}) => {
   const history = useHistory();
-
-  // if (!size) 
-  //   size = 280;
 
   return (
     <Card id={id} size={size}>
-      <CardActionArea size={size} onClick={() => history.push(`/categoria/${categoria}/materia/${id}`)}>
+      <CardActionArea size={size} onClick={() => history.push(`/${categoriaSlug}/${slug}`)}>
         <CardMedia
           image={imagem}
           title={titulo}

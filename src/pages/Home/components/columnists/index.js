@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom';
 import SectionTitle from "../../../../components/sectionTitle";
 import api from "../../../../services/baseApi";
 import GostosurasDaGi from "../../../../assets/gostosuras-da-gi.png";
@@ -11,6 +12,7 @@ import { Container, ColunaContainer, LogoRow } from "./styled";
 import Shuffle from "../../../../util/shuffleArray";
 
 const Columnists = () => {
+  const history = useHistory();
   const [colunistas, setColunistas] = useState([]);
   const isMobile = window.innerWidth <= 500;
 
@@ -48,6 +50,7 @@ const Columnists = () => {
           name: element.name,
           logo: image,
           link: element.link,
+          slug: element.slug,
         });
       });
 
@@ -76,10 +79,10 @@ const Columnists = () => {
           colunistas.length > 0 &&
           colunistas.map((coluna) => (
             <ColunaContainer key={coluna.id}>
-              <a href={coluna.link}>
+              <div onClick={() => history.push(`/${coluna.slug}/${coluna.id}/pagina/1`)}>
                 <img src={coluna.logo} alt={coluna.name} />
                 <p>{coluna.name}</p>
-              </a>
+              </div>
             </ColunaContainer>
           ))}
       </LogoRow>

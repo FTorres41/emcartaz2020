@@ -14,7 +14,7 @@ import NewsCard from "../../components/newsCard";
 const CategoryPage = () => {
   const history = useHistory();
 
-  const { catId, pagina } = useParams();
+  const { catId, categoria, pagina } = useParams();
   const [materias, setMaterias] = useState([]);
   const [page, setPage] = useState(pagina);
   const [paginas, setPaginas] = useState(1);
@@ -43,6 +43,7 @@ const CategoryPage = () => {
             __html: dt.excerpt.rendered,
           },
           link: dt.link,
+          slug: dt.slug,
         });
       }
 
@@ -84,13 +85,15 @@ const CategoryPage = () => {
                     key={materia.id}
                     id={materia.id}
                     categoria={catId}
+                    categoriaSlug={categoria}
                     titulo={materia.titulo}
                     imagem={materia.imagem}
+                    slug={materia.slug}
                     size={size}
                   />
                   <div
                     className="destaque leia-mais"
-                    onClick={() => history.push(`/materia/${materia.id}`)}
+                    onClick={() => history.push(`/${categoria}/${materia.slug}`)}
                   >
                     Leia mais
                   </div>

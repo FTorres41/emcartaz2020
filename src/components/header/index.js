@@ -72,7 +72,7 @@ const Header = ({ cor }) => {
                     key={categoria.id}
                     label={categoria.name}
                     onClick={() =>
-                      history.push(`/categoria/${categoria.id}/pagina/1`)
+                      history.push(`/${categoria.slug}/${categoria.id}/pagina/1`)
                     }
                   />
                 ))}

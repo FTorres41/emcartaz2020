@@ -7,12 +7,14 @@ import CoreStyles from 'react-awesome-slider/src/core/styles.scss';
 import AnimationStyles from 'react-awesome-slider/src/styled/fold-out-animation/fold-out-animation.scss';
 import { GalleryContainer } from './styled';
 import GetImage from '../../../../util/getImage';
+import EstiloCategorias from "../../../../util/estiloCategorias";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Gallery = () => {
     const [destaques, setDestaques] = useState([]);
     const history = useHistory();
+    const categorias = EstiloCategorias;
 
     useEffect(() => {
         async function BuildDestaques (data) {
@@ -27,7 +29,8 @@ const Gallery = () => {
                     imagem: url,
                     titulo: dt.title.rendered,
                     link: dt.link,
-                    categoria: dt.categories[0].id,
+                    slug: dt.slug,
+                    categoria: categorias.filter(x => x.id === parseInt(dt.categories[0].id))[0],
                 })
             }  
 
@@ -41,7 +44,7 @@ const Gallery = () => {
         }
 
         loadDestaques();
-    }, []);
+    }, [categorias]);
 
     return (
         <GalleryContainer>
@@ -58,7 +61,7 @@ const Gallery = () => {
                         <div className="destaque-item" key={destaque.id}>
                             <img src={destaque.imagem} alt={destaque.titulo}/>
                             <div className="destaque-link">
-                                <div onClick={() => history.push(`/categoria/${destaque.categoria}/materia/${destaque.id}`)}>{destaque.titulo}</div>
+                                <div onClick={() => history.push(`/${destaque.categoria.slug}/${destaque.slug}`)}>{destaque.titulo}</div>
                             </div>
                         </div>
                     ))}

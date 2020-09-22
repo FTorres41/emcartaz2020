@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import AuthorCard from "../../components/authorCard";
 import Container from "../../components/pageContainer";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
@@ -10,22 +11,22 @@ import GetImage from "../../util/getImage";
 import EstiloCategorias from "../../util/estiloCategorias";
 
 const ArticlePage = () => {
-  const { id, catId } = useParams();
+  const { slug, categoria } = useParams();
   const [materia, setMateria] = useState({});
   const [loading, setLoading] = useState(true);
 
   const estilos = EstiloCategorias;
-  const estilo = estilos.filter(x => x.id === parseInt(catId))[0];
+  const estilo = estilos.filter(x => x.slug === categoria)[0];
 
   useEffect(() => {
     async function GetAutor(userId) {
       const { data } = await api.get(`/users/${userId}`);
 
-      return data.name;
+      return data;
     }
 
     async function GetCategoria() {
-      const { data } = await api.get(`/categories/${catId}`);
+      const { data } = await api.get(`/categories?slug=${categoria}`);
 
       return data.name;
     }
@@ -46,18 +47,19 @@ const ArticlePage = () => {
           __html: data.content.rendered,
         },
         link: data.link,
+        slug: slug,
       };
     }
 
     async function loadMateria() {
-      const { data } = await api.get(`/posts/${id}`);
+      const { data } = await api.get(`/posts/?slug=${slug}`);
 
-      setMateria(await buildItem(data));
+      setMateria(await buildItem(data[0]));
       setLoading(false);
     }
 
     loadMateria();
-  }, [id, catId, setMateria, setLoading]);
+  }, [setMateria, setLoading, categoria, slug]);
 
   return (
     <Container>
@@ -68,10 +70,11 @@ const ArticlePage = () => {
             <div className="categoria">{materia.categoria}</div>
             <hr />
             <span className="autor">
-              {materia.data} / Por {materia.autor}
+              {materia.data} / Por {materia.autor.name}
             </span>
             <h1>{materia.titulo}</h1>
             <div dangerouslySetInnerHTML={materia.conteudo} />
+            <AuthorCard data={materia.autor} />
           </Article>
         ) : (
           <></>

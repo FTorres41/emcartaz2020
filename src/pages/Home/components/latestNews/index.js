@@ -5,9 +5,11 @@ import api from "../../../../services/baseApi";
 import GetImage from "../../../../util/getImage";
 import { Row } from 'react-flexbox-grid';
 import { Container, Content } from "./styled";
+import EstiloCategorias from "../../../../util/estiloCategorias";
 
 const LatestNews = () => {
   const [noticias, setNoticias] = useState([]);
+  const categorias = EstiloCategorias;
 
   const size = window.innerWidth >= 400 ? 280 : 180; 
 
@@ -16,7 +18,7 @@ const LatestNews = () => {
       let news = [];
       for (let i = 0; i < data.length; i++) {
         const dt = data[i];
-
+        const itemCategories = dt.categories.filter(x => x !== 2352 && x !== 2351);
         var imageUrl = await GetImage(dt);
 
         news.push({
@@ -24,7 +26,8 @@ const LatestNews = () => {
           titulo: dt.title.rendered,
           imagem: imageUrl,
           link: dt.link,
-          categoria: dt.categories[0].id,
+          slug: dt.slug,
+          categoria: categorias.filter(x => x.id === parseInt(itemCategories[0]))[0],
         });
       }
 
@@ -38,7 +41,7 @@ const LatestNews = () => {
     }
 
     loadNoticias();
-  }, []);
+  }, [categorias]);
 
   return (
     <Container>
@@ -57,7 +60,9 @@ const LatestNews = () => {
             id={noticia.id}
             titulo={noticia.titulo}
             imagem={noticia.imagem}
-            categoria={noticia.categoria}
+            categoria={noticia.categoria.id}
+            categoriaSlug={noticia.categoria.slug}
+            slug={noticia.slug}
             size={size}
           />
         ))}
