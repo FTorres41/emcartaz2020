@@ -31,6 +31,7 @@ export const GalleryContainer = styled.div`
       flex-direction: column;
       width: 100%;
       height: 100%;
+      cursor: pointer;
 
       img {
         max-width: 1140px;
@@ -45,8 +46,9 @@ export const GalleryContainer = styled.div`
         position: absolute;
         height: 90px;
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        cursor: pointer;
 
-        a {
+        div {
           font-size: 36px;
           display: flex;
           color: ${(props) => props.theme.white};

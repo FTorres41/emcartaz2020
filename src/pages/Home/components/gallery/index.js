@@ -30,7 +30,7 @@ const Gallery = () => {
                     titulo: dt.title.rendered,
                     link: dt.link,
                     slug: dt.slug,
-                    categoria: categorias.filter(x => x.id === parseInt(dt.categories[0].id))[0],
+                    categoria: categorias.filter(x => dt.categories.includes(x.id))[0],
                 })
             }  
 
@@ -58,10 +58,10 @@ const Gallery = () => {
                 {destaques && 
                     destaques.length > 0 && 
                     destaques.map((destaque) => (
-                        <div className="destaque-item" key={destaque.id}>
+                        <div className="destaque-item" key={destaque.id} onClick={() => history.push(`/${destaque.categoria.slug}/${destaque.slug}`)}>
                             <img src={destaque.imagem} alt={destaque.titulo}/>
-                            <div className="destaque-link">
-                                <div onClick={() => history.push(`/${destaque.categoria.slug}/${destaque.slug}`)}>{destaque.titulo}</div>
+                            <div className="destaque-link" onClick={() => history.push(`/${destaque.categoria.slug}/${destaque.slug}`)}>
+                                <div>{destaque.titulo}</div>
                             </div>
                         </div>
                     ))}

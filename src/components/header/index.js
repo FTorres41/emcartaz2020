@@ -8,33 +8,34 @@ import { Row, Col } from "react-flexbox-grid";
 
 const Header = ({ cor }) => {
   const history = useHistory();
-  const { catId } = useParams();
+  const { categoria } = useParams();
   const [categorias, setCategorias] = useState([]);
 
   function GetLogo() {
-    if (catId) {
-      switch (parseInt(catId)) {
-        case 7:
+    if (categoria) {
+      switch (categoria) {
+        case 'artes':
           return 'emcartaz-amarelo';
-        case 13:
+        case 'bares-e-baladas':
           return 'emcartaz-roxo';
-        case 15:
+        case 'cinema':
+        case 'dicas-do-em-cartaz':
           return 'emcartaz-verde-claro';
-        case 9:
+        case 'danca':
           return'emcartaz-rosa';
-        case 8:
+        case 'gastronomia':
           return 'emcartaz-laranja';
-        case 12:
+        case 'infantil':
           return 'emcartaz-azul-claro';          
-        case 11:
+        case 'juvenil':
           return 'emcartaz-amarelo';
-        case 14:
+        case 'literatura':
           return 'emcartaz-verde';          
-        case 10:
+        case 'musica':
           return 'emcartaz-azul';
-        case 37:
+        case 'teatro':
           return 'emcartaz-vermelho';
-        case 28:
+        case 'variedades':
           return 'emcartaz-marrom';
         default:
           return 'emcartaz';

@@ -20,15 +20,15 @@ const ArticlePage = () => {
 
   useEffect(() => {
     async function GetAutor(userId) {
-      const { data } = await api.get(`/users/${userId}`);
+      const response = await api.get(`/users/${userId}`);
 
-      return data;
+      return response.data;
     }
 
     async function GetCategoria() {
-      const { data } = await api.get(`/categories?slug=${categoria}`);
+      const response = await api.get(`/categories?slug=${categoria}`);
 
-      return data.name;
+      return response.data[0].name;
     }
 
     async function buildItem(data) {
@@ -74,7 +74,7 @@ const ArticlePage = () => {
             </span>
             <h1>{materia.titulo}</h1>
             <div dangerouslySetInnerHTML={materia.conteudo} />
-            <AuthorCard data={materia.autor} />
+            <AuthorCard data={materia.autor} cor={estilo ? estilo.cor : undefined} />
           </Article>
         ) : (
           <></>

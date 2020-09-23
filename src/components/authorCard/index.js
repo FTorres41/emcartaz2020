@@ -1,11 +1,12 @@
 import React from "react";
-import { Col, Row } from "react-flexbox-grid";
+import { Col } from "react-flexbox-grid";
+import { AuthorContainer } from './styled';
 
-const AuthorCard = ({ data }) => {
+const AuthorCard = ({ data, cor }) => {
   const { name, description, avatar_urls/*, slug*/ } = data;
 
   return (
-    <Row>
+    <AuthorContainer cor={cor}>
       <Col sm={12} lg={2}>
         <img src={avatar_urls["96"]} alt={name} />
       </Col>
@@ -13,7 +14,7 @@ const AuthorCard = ({ data }) => {
         <strong>{name}</strong>
         <p>{description}</p>
       </Col>
-    </Row>
+    </AuthorContainer>
   );
 };
 
