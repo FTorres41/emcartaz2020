@@ -12,7 +12,7 @@ export const Content = styled(Row)`
       max-width: 615px;
     }
 
-    @media(max-width: 400px) {
+    @media(max-width: 500px) {
       max-width: 360px;
     }
 

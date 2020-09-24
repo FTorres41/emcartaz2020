@@ -10,11 +10,11 @@ import SetimaArte from "../../../../assets/setima-arte.png";
 import TechGeek from "../../../../assets/techgeek.png";
 import { Container, ColunaContainer, LogoRow } from "./styled";
 import Shuffle from "../../../../util/shuffleArray";
+import { isMobile } from 'react-device-detect';
 
 const Columnists = () => {
   const history = useHistory();
   const [colunistas, setColunistas] = useState([]);
-  const isMobile = window.innerWidth <= 500;
 
   useEffect(() => {
     const buildColunistas = (data) => {
@@ -69,7 +69,7 @@ const Columnists = () => {
     }
 
     loadColunistas();
-  }, [isMobile, setColunistas]);
+  }, [setColunistas]);
 
   return (
     <Container>

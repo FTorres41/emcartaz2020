@@ -1,48 +1,51 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import api from "../../services/baseApi";
-import { HeaderBar, HeaderTab, TabsRow } from "./styled";
+import { HeaderBar, HeaderTab, MobileMenu, TabsRow } from "./styled";
 import Logo from "../logo";
-import { Button, Tabs } from "@material-ui/core";
+import { Button, MenuItem, Tabs } from "@material-ui/core";
 import { Row, Col } from "react-flexbox-grid";
+import { isMobile } from "react-device-detect";
+import { ImMenu } from 'react-icons/im';
 
 const Header = ({ cor }) => {
   const history = useHistory();
   const { categoria } = useParams();
   const [categorias, setCategorias] = useState([]);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   function GetLogo() {
     if (categoria) {
       switch (categoria) {
-        case 'artes':
-          return 'emcartaz-amarelo';
-        case 'bares-e-baladas':
-          return 'emcartaz-roxo';
-        case 'cinema':
-        case 'dicas-do-em-cartaz':
-          return 'emcartaz-verde-claro';
-        case 'danca':
-          return'emcartaz-rosa';
-        case 'gastronomia':
-          return 'emcartaz-laranja';
-        case 'infantil':
-          return 'emcartaz-azul-claro';          
-        case 'juvenil':
-          return 'emcartaz-amarelo';
-        case 'literatura':
-          return 'emcartaz-verde';          
-        case 'musica':
-          return 'emcartaz-azul';
-        case 'teatro':
-          return 'emcartaz-vermelho';
-        case 'variedades':
-          return 'emcartaz-marrom';
+        case "artes":
+          return "emcartaz-amarelo";
+        case "bares-e-baladas":
+          return "emcartaz-roxo";
+        case "cinema":
+        case "dicas-do-em-cartaz":
+          return "emcartaz-verde-claro";
+        case "danca":
+          return "emcartaz-rosa";
+        case "gastronomia":
+          return "emcartaz-laranja";
+        case "infantil":
+          return "emcartaz-azul-claro";
+        case "juvenil":
+          return "emcartaz-amarelo";
+        case "literatura":
+          return "emcartaz-verde";
+        case "musica":
+          return "emcartaz-azul";
+        case "teatro":
+          return "emcartaz-vermelho";
+        case "variedades":
+          return "emcartaz-marrom";
         default:
-          return 'emcartaz';
+          return "emcartaz";
       }
     }
 
-    return 'emcartaz';
+    return "emcartaz";
   }
 
   useEffect(() => {
@@ -53,6 +56,21 @@ const Header = ({ cor }) => {
 
     loadCategorias();
   }, []);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const clickMobileMenu = (slug, id) => {
+    history.push(
+      `/${slug}/${id}/pagina/1`
+    )
+    handleClose();
+  }
 
   return (
     <HeaderBar>
@@ -65,20 +83,50 @@ const Header = ({ cor }) => {
           </Col>
         </Row>
         <TabsRow cor={cor ? cor : (props) => props.theme.blue}>
-          <Col lg={12}>
-            <Tabs value={false}>
-              {categorias &&
-                categorias.map((categoria) => (
-                  <HeaderTab
-                    key={categoria.id}
-                    label={categoria.name}
-                    onClick={() =>
-                      history.push(`/${categoria.slug}/${categoria.id}/pagina/1`)
-                    }
-                  />
-                ))}
-            </Tabs>
-          </Col>
+          {isMobile ? (
+            <div>
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+              >
+                <ImMenu color={'white'} size={'3em'}/>
+              </Button>
+              <MobileMenu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={anchorEl}
+                onClose={handleClose}
+                cor={cor ? cor : (props) => props.theme.blue}
+              >
+                {categorias &&
+                  categorias.map((categoria) => (
+                    <MenuItem
+                      key={categoria.id}
+                      onClick={() => clickMobileMenu(categoria.slug, categoria.id)}
+                    >{categoria.name}</MenuItem>
+                  ))}
+              </MobileMenu>
+            </div>
+          ) : (
+            <Col lg={12}>
+              <Tabs value={false}>
+                {categorias &&
+                  categorias.map((categoria) => (
+                    <HeaderTab
+                      key={categoria.id}
+                      label={categoria.name}
+                      onClick={() =>
+                        history.push(
+                          `/${categoria.slug}/${categoria.id}/pagina/1`
+                        )
+                      }
+                    />
+                  ))}
+              </Tabs>
+            </Col>
+          )}
         </TabsRow>
       </div>
     </HeaderBar>

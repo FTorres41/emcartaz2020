@@ -2,10 +2,11 @@ import React from "react";
 import { Container, Content /*, VideoItem*/ } from "./styled";
 import SectionTitle from "../../../../components/sectionTitle";
 import InstaGrid from "../../../../components/instaGrid";
+import { isMobile } from 'react-device-detect';
 
 const InstagramCard = () => {
-  const width = window.innerWidth <= 768 ? 560 : 400;
-  const qtd = window.innerWidth <= 500 ? 6 : 9;
+  const width = isMobile ? 560 : 400;
+  const qtd = isMobile ? 6 : 9;
 
   return (
     <Container width={width}>

@@ -4,14 +4,15 @@ import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import compose from "recompose/compose";
+import { isMobileOnly } from 'react-device-detect';
 
 const styles = () => ({
   wrapper: {},
   image: {
     width: "100%",
     height: "100%",
-    maxHeight: window.innerWidth <= 768 ? "193px" : "133px",
-    maxWidth: window.innerWidth <= 768 ? "193px" : "133px",
+    maxHeight: !isMobileOnly ? "193px" : "133px",
+    maxWidth: !isMobileOnly ? "193px" : "133px",
   },
 });
 

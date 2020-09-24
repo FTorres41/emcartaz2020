@@ -15,6 +15,14 @@ export const GalleryContainer = styled.div`
     }
   }
 
+  @media(max-width: 500px) {
+    .awssld__wrapper {
+      height: 250px;
+      max-width: 475px;
+      margin: 0 auto;
+    }
+  }
+
   @media(max-width: 400px) {
     .awssld__wrapper {
       height: 210px;

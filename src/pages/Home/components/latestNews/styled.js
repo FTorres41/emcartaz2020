@@ -12,7 +12,7 @@ export const Container = styled.div`
     max-width: 580px;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     max-width: 375px;
   }
 `;

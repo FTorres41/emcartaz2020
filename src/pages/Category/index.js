@@ -10,6 +10,7 @@ import GetImage from "../../util/getImage";
 import EstiloCategorias from "../../util/estiloCategorias";
 import { Pagination } from "@material-ui/lab";
 import NewsCard from "../../components/newsCard";
+import { isMobile } from 'react-device-detect';
 
 const CategoryPage = () => {
   const history = useHistory();
@@ -70,7 +71,7 @@ const CategoryPage = () => {
     getTotals();
   }, [catId, page, setMaterias]);
 
-  const size = window.innerWidth > 500 ? 300 : 175;
+  const size = isMobile ? 160 : 300;
 
   return (
     <Container>

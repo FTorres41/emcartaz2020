@@ -8,7 +8,7 @@ export const StyledCard = styled(Card)`
     margin: 15px 0;
     background-color: ${(props) => props.theme.black} !important;
 
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
         margin: 15px auto;
     }
 `;

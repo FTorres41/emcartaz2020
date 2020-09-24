@@ -6,12 +6,13 @@ import GetImage from "../../../../util/getImage";
 import { Row } from 'react-flexbox-grid';
 import { Container, Content } from "./styled";
 import EstiloCategorias from "../../../../util/estiloCategorias";
+import {isMobileOnly} from 'react-device-detect';
 
 const LatestNews = () => {
   const [noticias, setNoticias] = useState([]);
   const categorias = EstiloCategorias;
 
-  const size = window.innerWidth >= 400 ? 280 : 180; 
+  const size = !isMobileOnly ? 280 : 170; 
 
   useEffect(() => {
     async function buildNoticias(data) {

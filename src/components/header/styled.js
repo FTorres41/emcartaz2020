@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Row } from 'react-flexbox-grid';
-import { Tab, Toolbar } from '@material-ui/core';
+import { Menu, Tab, Toolbar } from '@material-ui/core';
 
 export const HeaderBar = styled(Toolbar)`
     background-color: ${(props) => props.theme.white};
@@ -44,3 +44,11 @@ export const TabsRow = styled(Row)`
         justify-content: space-around;
     }
 `;
+
+export const MobileMenu = styled(Menu)`
+    .MuiPaper-root {
+        width: 100%;
+        color: ${(props) => props.cor === props.theme.yellow ? props.theme.black : props.theme.white };
+        background-color: ${(props) => props.cor ? props.cor : props.theme.blue};
+    }
+`

@@ -5,12 +5,13 @@ import { Container, Content, VideoItem } from "./styled";
 import SectionTitle from "../../../../components/sectionTitle";
 import { List, ListItemText } from "@material-ui/core";
 import { AiFillYoutube } from "react-icons/ai";
+import {isTablet} from 'react-device-detect';
 
 const YouTubeCard = () => {
   const [videoId, setVideoId] = useState("");
   const [videos, setVideos] = useState([]);
 
-  const width = window.innerWidth > 500 && window.innerWidth <= 768 ? 560 : 360;
+  const width = isTablet ? 560 : 360;
 
   useEffect(() => {
     async function loadVideos() {

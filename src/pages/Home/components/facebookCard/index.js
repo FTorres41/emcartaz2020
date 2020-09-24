@@ -1,9 +1,10 @@
 import React from "react";
 import { Container, Content } from "./styled";
 import SectionTitle from "../../../../components/sectionTitle";
+import { isTablet } from 'react-device-detect';
 
 const FacebookCard = () => {
-  const width = window.innerWidth > 500 && window.innerWidth <= 768 ? 500 : 360;
+  const width = isTablet ? 500 : 360;
   return (
     <Container width={width}>
       <SectionTitle value={"Facebook"} color={(props) => props.theme.purple} />
