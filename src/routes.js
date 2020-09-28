@@ -5,11 +5,13 @@ import CategoryPage from "./pages/Category";
 import ArticlePage from "./pages/Article";
 import AboutUsPage from "./pages/AboutUs";
 import ContactPage from "./pages/Contact";
+import ColumnistsPage from "./pages/Columnists";
 
 export default function Routes() {
   return (
     <Switch>
       <Route component={CategoryPage} path="/categoria/:catId/pagina/:pagina" />
+      <Route component={ColumnistsPage} path='/colunas' />
       <Route component={CategoryPage} path="/:categoria/:catId/pagina/:pagina" />
       <Route component={ArticlePage} path="/categoria/:catId/materia/:id" />
       <Route component={ArticlePage} path="/:categoria/:slug" />

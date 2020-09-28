@@ -4,6 +4,7 @@ import AuthorCard from "../../components/authorCard";
 import Container from "../../components/pageContainer";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import SocialShare from "../../components/socialShare";
 import api from "../../services/baseApi";
 import { Article, Content } from "./styled";
 import moment from "moment";
@@ -74,6 +75,7 @@ const ArticlePage = () => {
             </span>
             <h1>{materia.titulo}</h1>
             <div dangerouslySetInnerHTML={materia.conteudo} />
+            <SocialShare url={window.location.href} title={materia.titulo} />
             <AuthorCard data={materia.autor} cor={estilo ? estilo.cor : undefined} />
           </Article>
         ) : (

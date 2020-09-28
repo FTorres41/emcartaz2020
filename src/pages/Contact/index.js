@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../../components/pageContainer";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import SocialShare from "../../components/socialShare";
 import { Article, Content } from "./styled";
 import { Col, Row } from "react-flexbox-grid";
 
@@ -74,6 +75,7 @@ const ContactPage = () => {
             </Row>
           </div>
         </Article>
+        <SocialShare url={window.location.href} title={"Contato - Em Cartaz"} />
       </Content>
       <Footer />
     </Container>

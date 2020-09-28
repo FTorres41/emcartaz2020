@@ -43,6 +43,11 @@ export const theme = {
   lightGreen: "#a1cc3a",
   gray: "#edeef0",
   darkGray: "#8c8c8c",
+  midBlue: '#3897F0',
+  midGreen: '#70C050',
+  midRed: '#ED0013',
+  midYellow: '#FECB5B',
+  darkBlue: '#001629',
 };
 
 export const devices = {

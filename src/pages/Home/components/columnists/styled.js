@@ -12,7 +12,7 @@ export const Container = styled.div`
     max-width: 580px;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     width: 365px;
     margin: 0;
   }
@@ -24,6 +24,7 @@ export const ColunaContainer = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 180px;
+  cursor: pointer;
 
   a {
     text-decoration: none;
@@ -45,6 +46,7 @@ export const ColunaContainer = styled.div`
   p {
     font-weight: 600;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    text-align: center;
   }
 `;
 

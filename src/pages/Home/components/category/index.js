@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import SectionTitle from "../../../../components/sectionTitle";
 import { Container, Content } from "./styled";
 import GetImage from "../../../../util/getImage";
@@ -7,6 +8,7 @@ import NewsCard from "../../../../components/newsCard";
 
 const HomeCategory = ({ id, color, nome }) => {
   const [itens, setItens] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     async function buildItens(data) {
@@ -39,7 +41,7 @@ const HomeCategory = ({ id, color, nome }) => {
 
   return (
     <Container>
-      <SectionTitle color={color} value={nome} />
+      <SectionTitle color={color} value={nome} goTo={() => history.push(`/${nome}/pagina/1`)}/>
       <Content>
         {itens &&
           itens.length > 0 &&

@@ -6,7 +6,7 @@ import Logo from "../logo";
 import { Button, MenuItem, Tabs } from "@material-ui/core";
 import { Row, Col } from "react-flexbox-grid";
 import { isMobile } from "react-device-detect";
-import { ImMenu } from 'react-icons/im';
+import { ImMenu } from "react-icons/im";
 
 const Header = ({ cor }) => {
   const history = useHistory();
@@ -36,6 +36,7 @@ const Header = ({ cor }) => {
           return "emcartaz-verde";
         case "musica":
           return "emcartaz-azul";
+        case "colunas":
         case "teatro":
           return "emcartaz-vermelho";
         case "variedades":
@@ -44,7 +45,7 @@ const Header = ({ cor }) => {
           return "emcartaz";
       }
     }
-
+    
     return "emcartaz";
   }
 
@@ -66,20 +67,38 @@ const Header = ({ cor }) => {
   };
 
   const clickMobileMenu = (slug, id) => {
-    history.push(
-      `/${slug}/${id}/pagina/1`
-    )
+    if (slug !== "colunas") {
+      history.push(`/${slug}/${id}/pagina/1`);
+    } else {
+      history.push(`/${slug}`);
+    }
     handleClose();
-  }
+  };
+
+  const clickMenu = (slug, id) => {
+    if (slug !== "colunas") {
+      history.push(`/${slug}/${id}/pagina/1`);
+    } else {
+      history.push(`/${slug}`);
+    }
+  };
 
   return (
     <HeaderBar>
       <div className="header-content">
         <Row>
           <Col lg={12}>
-            <Button onClick={() => history.push(`/`)}>
-              <Logo className={GetLogo()} />
-            </Button>
+            {isMobile ? (
+              <center>
+                <Button onClick={() => history.push(`/`)}>
+                  <Logo className={GetLogo()} />
+                </Button>
+              </center>
+            ) : (
+              <Button onClick={() => history.push(`/`)}>
+                <Logo className={GetLogo()} />
+              </Button>
+            )}
           </Col>
         </Row>
         <TabsRow cor={cor ? cor : (props) => props.theme.blue}>
@@ -90,7 +109,7 @@ const Header = ({ cor }) => {
                 aria-haspopup="true"
                 onClick={handleClick}
               >
-                <ImMenu color={'white'} size={'3em'}/>
+                <ImMenu color={"white"} size={"3em"} />
               </Button>
               <MobileMenu
                 id="simple-menu"
@@ -104,8 +123,12 @@ const Header = ({ cor }) => {
                   categorias.map((categoria) => (
                     <MenuItem
                       key={categoria.id}
-                      onClick={() => clickMobileMenu(categoria.slug, categoria.id)}
-                    >{categoria.name}</MenuItem>
+                      onClick={() =>
+                        clickMobileMenu(categoria.slug, categoria.id)
+                      }
+                    >
+                      {categoria.name}
+                    </MenuItem>
                   ))}
               </MobileMenu>
             </div>
@@ -117,11 +140,7 @@ const Header = ({ cor }) => {
                     <HeaderTab
                       key={categoria.id}
                       label={categoria.name}
-                      onClick={() =>
-                        history.push(
-                          `/${categoria.slug}/${categoria.id}/pagina/1`
-                        )
-                      }
+                      onClick={() => clickMenu(categoria.slug, categoria.id)}
                     />
                   ))}
               </Tabs>

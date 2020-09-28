@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container } from './styled';
 
-const SectionTitle = ({value, color}) => {
+const SectionTitle = ({value, color, goTo}) => {
     return (
-        <Container color={color}>
+        <Container color={color} onClick={goTo}>
             <h2>{value}</h2>
         </Container>
     )

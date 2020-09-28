@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../../components/pageContainer";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import SocialShare from "../../components/socialShare";
 import { Article, Content, Image } from "./styled";
 import { Col, Row } from "react-flexbox-grid";
 import Logo from "../../assets/logo_emcartaz.png";
@@ -328,6 +329,7 @@ const AboutUsPage = () => {
             </Row>
           </div>
         </Article>
+        <SocialShare url={window.location.href} title={"Sobre Nós - Em Cartaz"} />
       </Content>
       <Footer />
     </Container>
