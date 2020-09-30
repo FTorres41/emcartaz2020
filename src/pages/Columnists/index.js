@@ -52,7 +52,7 @@ const ColumnistsPage = () => {
         itens.push({
           id: dt.id,
           imagem: url,
-          titulo: dt.title.rendered,
+          titulo: dt.title.rendered.replace('&#8211;', '-'),
           data: moment(dt.date).format("DD/MM/YYYY").toString(),
           resumo: {
             __html: dt.excerpt.rendered,

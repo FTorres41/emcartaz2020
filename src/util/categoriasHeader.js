@@ -73,15 +73,6 @@ const CategoriasHeader = [
     parent: 0,
   },
   {
-    id: 11,
-    description:
-      "Matérias publicadas para o público Juvenil no Portal Cultural Em Cartaz, Curitiba - PR",
-    link: "http://www.emcartaz.net/category/juvenil/",
-    name: "Juvenil",
-    slug: "juvenil",
-    parent: 0,
-  },
-  {
     id: 14,
     description:
       "Matérias publicadas sobre Literatura no Portal Cultural Em Cartaz, Curitiba - PR",

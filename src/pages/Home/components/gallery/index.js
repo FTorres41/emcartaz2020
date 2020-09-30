@@ -27,7 +27,7 @@ const Gallery = () => {
                 destaques.push({
                     id: dt.id,
                     imagem: url,
-                    titulo: dt.title.rendered,
+                    titulo: dt.title.rendered.replace('&#8211;', '-'),
                     link: dt.link,
                     slug: dt.slug,
                     categoria: categorias.filter(x => dt.categories.includes(x.id))[0],
@@ -51,7 +51,7 @@ const Gallery = () => {
             <AutoplaySlider 
                 play={true}
                 cancelOnInteraction={false}
-                interval={10000}
+                interval={5000}
                 animation="foldOutAnimation"
                 cssModule={[CoreStyles, AnimationStyles]}
             >

@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import api from "../../services/baseApi";
-import { HeaderBar, HeaderTab, MobileMenu, TabsRow } from "./styled";
+import {
+  HeaderBar,
+  HeaderTab,
+  MobileMenu,
+  SearchInput,
+  SearchPopover,
+  TabsRow,
+} from "./styled";
 import Logo from "../logo";
 import { Button, MenuItem, Tabs } from "@material-ui/core";
 import { Row, Col } from "react-flexbox-grid";
 import { isMobile } from "react-device-detect";
 import { ImMenu } from "react-icons/im";
+import { FaSearch } from "react-icons/fa";
 
 const Header = ({ cor }) => {
   const history = useHistory();
   const { categoria } = useParams();
   const [categorias, setCategorias] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorSearch, setAnchorSearch] = useState(null);
+  const open = Boolean(anchorSearch);
 
   function GetLogo() {
     if (categoria) {
@@ -45,14 +55,14 @@ const Header = ({ cor }) => {
           return "emcartaz";
       }
     }
-    
+
     return "emcartaz";
   }
 
   useEffect(() => {
     async function loadCategorias() {
       const { data } = await api.get("/categories?per_page=50");
-      setCategorias(data.filter((x) => x.description !== ""));
+      setCategorias(data.filter((x) => x.description !== "" && x.id !== 11));
     }
 
     loadCategorias();
@@ -64,6 +74,14 @@ const Header = ({ cor }) => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleSearchClick = (event) => {
+    setAnchorSearch(event.currentTarget);
+  };
+
+  const handleSearchClose = () => {
+    setAnchorSearch(null);
   };
 
   const clickMobileMenu = (slug, id) => {
@@ -119,6 +137,18 @@ const Header = ({ cor }) => {
                 onClose={handleClose}
                 cor={cor ? cor : (props) => props.theme.blue}
               >
+                <MenuItem>
+                  <SearchInput
+                    type="text"
+                    placeholder="Busca"
+                    // style={{
+                    //   width: "90%",
+                    //   padding: "5px",
+                    //   marginRight: "10px",
+                    // }}
+                  />
+                  <FaSearch />
+                </MenuItem>
                 {categorias &&
                   categorias.map((categoria) => (
                     <MenuItem
@@ -143,7 +173,33 @@ const Header = ({ cor }) => {
                       onClick={() => clickMenu(categoria.slug, categoria.id)}
                     />
                   ))}
+                <HeaderTab
+                  label={
+                    <FaSearch style={{ marginLeft: "10px", justifyContent: 'flex-end' }} size={"1.7em"} />
+                  }
+                  onClick={handleSearchClick}
+                />
               </Tabs>
+              <SearchPopover
+                id={"search"}
+                open={open}
+                anchorEl={anchorSearch}
+                onClose={handleSearchClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                cor={cor ? cor : (props) => props.theme.blue}
+              >
+                <div className="search">
+                  <SearchInput type="text" placeholder="Busca" />
+                  <Button>Buscar</Button>
+                </div>
+              </SearchPopover>
             </Col>
           )}
         </TabsRow>

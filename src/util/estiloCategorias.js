@@ -62,13 +62,6 @@ const EstiloCategorias = [
     logo: <LogoAzulClaro />,
   },
   {
-    id: 11,
-    nome: "Juvenil",
-    slug: "juvenil",
-    cor: (props) => props.theme.yellow,
-    logo: <LogoAmarelo />,
-  },
-  {
     id: 14,
     nome: "Literatura",
     slug: "literatura",

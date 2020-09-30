@@ -16,7 +16,7 @@ export default createGlobalStyle`
   }
 
   body {
-    padding: 0;
+    padding: 0 !important;
     margin: 0;
     font-family: url(${Roboto});
     background-color: ${(props) => props.theme.white};

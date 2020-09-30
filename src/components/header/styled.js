@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Row } from "react-flexbox-grid";
-import { Menu, Tab, Toolbar } from "@material-ui/core";
+import { Menu, Popover, Tab, Toolbar } from "@material-ui/core";
 
 export const HeaderBar = styled(Toolbar)`
   background-color: ${(props) => props.theme.white};
@@ -12,7 +12,7 @@ export const HeaderBar = styled(Toolbar)`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1280px;
+    max-width: 1140px;
     height: 190px;
   }
 `;
@@ -21,8 +21,8 @@ export const HeaderTab = styled(Tab)`
   color: ${(props) => props.theme.white} !important;
   font-weight: bold !important;
   width: auto !important;
-  font-size: 13px !important;
-  max-width: 160px !important;
+  font-size: 12px !important;
+  max-width: 150px !important;
   min-width: 1px !important;
 `;
 
@@ -35,13 +35,18 @@ export const TabsRow = styled(Row)`
   position: absolute;
 
   .MuiTabs-root {
-    max-width: 1280px;
+    max-width: 1140px;
     margin: 0 auto;
   }
 
   .MuiTabs-flexContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+  }
+
+  .MuiTab-root {
+    letter-spacing: normal !important;
+    padding: 6px 10px !important;
   }
 `;
 
@@ -56,3 +61,22 @@ export const MobileMenu = styled(Menu)`
     background-color: ${(props) => (props.cor ? props.cor : props.theme.blue)};
   }
 `;
+
+export const SearchPopover = styled(Popover)`
+  .search {
+    background-color: ${(props) => (props.cor ? props.cor : props.theme.blue)};
+    padding: 6px 10px;
+
+    button {
+      color: #fff;
+      font-weight: 600;
+      font-size: 11px;
+    }
+  }
+`;
+
+export const SearchInput = styled.input`
+  width: 70%;
+  padding: 5px;
+  margin-right: 10px;
+`
