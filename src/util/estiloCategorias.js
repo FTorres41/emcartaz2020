@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from '../assets/logo_emcartaz.png'
 import LogoAmarelo from "../assets/logo_emcartaz_amarelo.png";
 import LogoAzul from "../assets/logo_emcartaz_azul.png";
 import LogoAzulClaro from "../assets/logo_emcartaz_azul_claro.png";
@@ -10,6 +9,12 @@ import LogoRoxo from "../assets/logo_emcartaz_roxo.png";
 import LogoVerde from "../assets/logo_emcartaz_verde.png";
 import LogoVerdeClaro from "../assets/logo_emcartaz_verde_claro.png";
 import LogoVermelho from "../assets/logo_emcartaz_vermelho.png";
+import LogoAmareloMid from "../assets/logo_emcartaz_amarelo_mid.png";
+import LogoVermelhoMid from "../assets/logo_emcartaz_vermelho_mid.png";
+import LogoVerdeMid from "../assets/logo_emcartaz_verde_mid.png";
+import LogoAzulMid from "../assets/logo_emcartaz_azul_mid.png";
+import LogoRosaMid from "../assets/logo_emcartaz_rosa_mid.png";
+import LogoAzulEscuro from "../assets/logo_emcartaz_azul_escuro.png";
 
 const EstiloCategorias = [
   {
@@ -18,6 +23,13 @@ const EstiloCategorias = [
     slug: "artes",
     cor: (props) => props.theme.yellow,
     logo: <LogoAmarelo />,
+  },
+  {
+    id: 6,
+    nome: "Turismo",
+    slug: "turismo",
+    cor: (props) => props.theme.lightGreen,
+    logo: <LogoVerdeClaro />,
   },
   {
     id: 13,
@@ -100,43 +112,50 @@ const EstiloCategorias = [
     id: 66114,
     nome: "Gostosuras da Gi",
     slug: "gostosuras-da-gi",
-    cor: (props) => props.theme.blue,
-    logo: <Logo />,
+    cor: (props) => props.theme.midPink,
+    logo: <LogoRosaMid />,
   },
   {
     id: 66110,
     nome: "Maternagem",
     slug: "maternagem",
-    cor: (props) => props.theme.blue,
-    logo: <Logo />,
+    cor: (props) => props.theme.midBlue,
+    logo: <LogoAzulMid />,
   },
   {
     id: 66113,
     nome: "Minha Playlist",
     slug: "minha-playlist",
-    cor: (props) => props.theme.blue,
-    logo: <Logo />,
+    cor: (props) => props.theme.midGreen,
+    logo: <LogoVerdeMid />,
   },
   {
     id: 66112,
     nome: "On The Rocks",
     slug: "on-the-rocks",
-    cor: (props) => props.theme.blue,
-    logo: <Logo />,
+    cor: (props) => props.theme.midRed,
+    logo: <LogoVermelhoMid />,
   },
   {
     id: 66111,
     nome: "Sétima Arte",
     slug: "setima-arte",
-    cor: (props) => props.theme.blue,
-    logo: <Logo />,
+    cor: (props) => props.theme.midYellow,
+    logo: <LogoAmareloMid />,
   },
   {
     id: 66115,
     nome: "TechGeek",
     slug: "techgeek",
-    cor: (props) => props.theme.blue,
-    logo: <Logo />,
+    cor: (props) => props.theme.darkBlue,
+    logo: <LogoAzulEscuro />,
+  },
+  {
+    id: 65125,
+    nome: "Covid-19",
+    slug: "covid-19",
+    cor: (props) => props.theme.red,
+    logo: <LogoVermelho />,
   },
 ];
 

@@ -21,7 +21,7 @@ const HomeCategory = ({ id, color, nome }) => {
         destaques.push({
           id: dt.id,
           imagem: url,
-          titulo: dt.title.rendered.replace('&#8211;', '-'),
+          titulo: dt.title.rendered.replace('&#8211;', '-').replace("&#038;", "&"),
           link: dt.link,
           slug: dt.slug,
         });

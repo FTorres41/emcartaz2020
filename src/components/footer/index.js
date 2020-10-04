@@ -15,6 +15,7 @@ const Footer = ({ cor }) => {
           {Categorias.map((categoria) =>
             categoria.newWindow ? (
               <a
+                key={categoria.nome}
                 rel="noopener noreferrer"
                 target="_blank"
                 href={categoria.link}

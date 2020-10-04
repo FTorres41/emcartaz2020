@@ -24,7 +24,7 @@ const LatestNews = () => {
 
         news.push({
           id: dt.id,
-          titulo: dt.title.rendered.replace('&#8211;', '-'),
+          titulo: dt.title.rendered.replace('&#8211;', '-').replace("&#038;", "&"),
           imagem: imageUrl,
           link: dt.link,
           slug: dt.slug,

@@ -91,6 +91,7 @@ export const LogoRow = styled(Row)`
 
 export const PaginationContainer = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: center;

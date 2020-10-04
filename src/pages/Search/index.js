@@ -12,16 +12,15 @@ import { Pagination } from "@material-ui/lab";
 import NewsCard from "../../components/newsCard";
 import { isMobile } from 'react-device-detect';
 
-const CategoryPage = () => {
+const SearchPage = () => {
   const history = useHistory();
 
-  const { catId, categoria, pagina } = useParams();
+  const { busca } = useParams();
   const [materias, setMaterias] = useState([]);
-  const [page, setPage] = useState(pagina);
+  const [page, setPage] = useState(1);
   const [paginas, setPaginas] = useState(1);
 
-  const estilos = EstiloCategorias;
-  const estilo = estilos.filter(x => x.id === parseInt(catId))[0];
+  const categorias = EstiloCategorias;
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -33,6 +32,7 @@ const CategoryPage = () => {
 
       for (let i = 0; i < data.length; i++) {
         const dt = data[i];
+        const itemCategories = dt.categories.filter(x => x !== 2352 && x !== 2351);
         const url = await GetImage(dt);
 
         itens.push({
@@ -45,6 +45,7 @@ const CategoryPage = () => {
           },
           link: dt.link,
           slug: dt.slug,
+          categoria: categorias.filter(x => x.id === parseInt(itemCategories[0]))[0]
         });
       }
 
@@ -52,31 +53,25 @@ const CategoryPage = () => {
     }
 
     async function loadMaterias() {
-      const { data } = await api.get(
-        `/posts?page=${page}&per_page=18&categories=${catId}`
+      const { data, headers } = await api.get(
+        `/posts?page=${page}&per_page=18&search=${busca}`
       );
 
       const itens = await buildItens(data);
       setMaterias(itens);
-    }
-
-    async function getTotals() {
-      const { data } = await api.get(`/categories/${catId}`);
-
-      const totalPag = Math.ceil(data.count / 10);
-      setPaginas(totalPag);
+      
+      setPaginas(parseInt(headers['x-wp-totalpages']))
     }
 
     loadMaterias();
-    getTotals();
-  }, [catId, page, setMaterias]);
+  }, [busca, categorias, page, setMaterias]);
 
   const size = isMobile ? 160 : 300;
 
   return (
     <Container>
-      <Header cor={estilo ? estilo.cor : undefined}/>
-      <Content cor={estilo ? estilo.cor : undefined}>
+      <Header />
+      <Content>
           {materias &&
             materias.length > 0 &&
             materias.map((materia) => (
@@ -85,8 +80,8 @@ const CategoryPage = () => {
                   <NewsCard
                     key={materia.id}
                     id={materia.id}
-                    categoria={catId}
-                    categoriaSlug={categoria}
+                    categoria={materia.categoria.id}
+                    categoriaSlug={materia.categoria.slug}
                     titulo={materia.titulo}
                     imagem={materia.imagem}
                     slug={materia.slug}
@@ -94,7 +89,7 @@ const CategoryPage = () => {
                   />
                   <div
                     className="destaque leia-mais"
-                    onClick={() => history.push(`/${categoria}/${materia.slug}`)}
+                    onClick={() => history.push(`/${materia.categoria.slug}/${materia.slug}`)}
                   >
                     Leia mais
                   </div>
@@ -104,9 +99,9 @@ const CategoryPage = () => {
           <Pagination count={paginas} onChange={handleChange} />
         </PaginationContainer>
       </Content>
-      <Footer cor={estilo ? estilo.cor : undefined} />
+      <Footer />
     </Container>
   );
 };
 
-export default CategoryPage;
+export default SearchPage;

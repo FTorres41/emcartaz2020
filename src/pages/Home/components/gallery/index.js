@@ -27,7 +27,7 @@ const Gallery = () => {
                 destaques.push({
                     id: dt.id,
                     imagem: url,
-                    titulo: dt.title.rendered.replace('&#8211;', '-'),
+                    titulo: dt.title.rendered.replace('&#8211;', '-').replace("&#038;", "&"),
                     link: dt.link,
                     slug: dt.slug,
                     categoria: categorias.filter(x => dt.categories.includes(x.id))[0],

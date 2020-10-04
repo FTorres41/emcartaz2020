@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import api from "../../services/baseApi";
 import {
+  AdContainer,
   HeaderBar,
   HeaderTab,
   MobileMenu,
@@ -15,6 +16,7 @@ import { Row, Col } from "react-flexbox-grid";
 import { isMobile } from "react-device-detect";
 import { ImMenu } from "react-icons/im";
 import { FaSearch } from "react-icons/fa";
+// import AnuncieEmCartaz from "../../assets/anuncie_emcartaz.png";
 
 const Header = ({ cor }) => {
   const history = useHistory();
@@ -22,6 +24,7 @@ const Header = ({ cor }) => {
   const [categorias, setCategorias] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorSearch, setAnchorSearch] = useState(null);
+  const [busca, setBusca] = useState("");
   const open = Boolean(anchorSearch);
 
   function GetLogo() {
@@ -51,6 +54,19 @@ const Header = ({ cor }) => {
           return "emcartaz-vermelho";
         case "variedades":
           return "emcartaz-marrom";
+        case "gostosuras-da-gi":
+          return "emcartaz-rosa-mid";
+        case "maternagem":
+          return "emcartaz-azul-mid";
+        case "minha-playlist":
+          return "emcartaz-verde-mid";
+        case "on-the-rocks":
+          return "emcartaz-vermelho-mid";
+        case "setima-arte":
+          return "emcartaz-amarelo-mid";
+        case "techgeek":
+          return "emcartaz-azul-escuro";
+
         default:
           return "emcartaz";
       }
@@ -103,22 +119,37 @@ const Header = ({ cor }) => {
 
   return (
     <HeaderBar>
+      <script type="text/javascript">
+        var lmdimgpixel=document.createElement('img');
+        lmdimgpixel.src='//secure.lomadee.com/pub.png?pid=22952260';
+        lmdimgpixel.id='lmd-verification-pixel-22952260';
+        lmdimgpixel.style='display:none'; var elmt =
+        document.getElementsByTagName('body')[0]; elmt.appendChild(lmdimgpixel);
+      </script>
       <div className="header-content">
-        <Row>
-          <Col lg={12}>
-            {isMobile ? (
+        {isMobile ? (
+          <Row>
+            <Col lg={12}>
               <center>
                 <Button onClick={() => history.push(`/`)}>
                   <Logo className={GetLogo()} />
                 </Button>
+                <AdContainer></AdContainer>
               </center>
-            ) : (
+            </Col>
+          </Row>
+        ) : (
+          <Row>
+            <Col lg={2}>
               <Button onClick={() => history.push(`/`)}>
                 <Logo className={GetLogo()} />
               </Button>
-            )}
-          </Col>
-        </Row>
+            </Col>
+            <Col lg={10}>
+              <AdContainer></AdContainer>
+            </Col>
+          </Row>
+        )}
         <TabsRow cor={cor ? cor : (props) => props.theme.blue}>
           {isMobile ? (
             <div>
@@ -141,13 +172,11 @@ const Header = ({ cor }) => {
                   <SearchInput
                     type="text"
                     placeholder="Busca"
-                    // style={{
-                    //   width: "90%",
-                    //   padding: "5px",
-                    //   marginRight: "10px",
-                    // }}
+                    onChange={(e) => setBusca(e.target.value)}
                   />
-                  <FaSearch />
+                  <Button onClick={() => history.push(`/busca/${busca}`)}>
+                    <FaSearch />
+                  </Button>
                 </MenuItem>
                 {categorias &&
                   categorias.map((categoria) => (
@@ -175,7 +204,10 @@ const Header = ({ cor }) => {
                   ))}
                 <HeaderTab
                   label={
-                    <FaSearch style={{ marginLeft: "10px", justifyContent: 'flex-end' }} size={"1.7em"} />
+                    <FaSearch
+                      style={{ marginLeft: "10px", justifyContent: "flex-end" }}
+                      size={"1.7em"}
+                    />
                   }
                   onClick={handleSearchClick}
                 />
@@ -196,8 +228,14 @@ const Header = ({ cor }) => {
                 cor={cor ? cor : (props) => props.theme.blue}
               >
                 <div className="search">
-                  <SearchInput type="text" placeholder="Busca" />
-                  <Button>Buscar</Button>
+                  <SearchInput
+                    type="text"
+                    placeholder="Busca"
+                    onChange={(e) => setBusca(e.target.value)}
+                  />
+                  <Button onClick={() => history.push(`/busca/${busca}`)}>
+                    Buscar
+                  </Button>
                 </div>
               </SearchPopover>
             </Col>

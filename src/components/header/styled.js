@@ -80,3 +80,11 @@ export const SearchInput = styled.input`
   padding: 5px;
   margin-right: 10px;
 `
+
+export const AdContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 80%;
+`

@@ -56,7 +56,7 @@ const ArticlePage = () => {
       return {
         id: data.id,
         imagem: url,
-        titulo: data.title.rendered.replace("&#8211;", "-"),
+        titulo: data.title.rendered.replace("&#8211;", "-").replace("&#038;", "&"),
         autor: autorData,
         categoria: categoriaData,
         data: moment(data.date).format("DD/MM/YYYY").toString(),
@@ -91,7 +91,6 @@ const ArticlePage = () => {
             </span>
             <h1>{materia.titulo}</h1>
             <div dangerouslySetInnerHTML={materia.conteudo} />
-            {/* <SocialShare url={shareUrl} title={materia.titulo} /> */}
             <SSContainer>
               <p>Compartilhe com seus amigos! </p>
               <EmailShareButton url={window.location.href} subject={materia.titulo}>
