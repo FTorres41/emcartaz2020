@@ -32,8 +32,6 @@ const ArticlePage = () => {
   const { slug, categoria } = useParams();
   const [materia, setMateria] = useState({});
   const [widgets, setWidgets] = useState([]);
-  const [setOGImage, OGImage] = useState('');
-  const [setOGTitle, OGTitle] = useState('');
   const [loading, setLoading] = useState(true);
   const estilos = EstiloCategorias;
   const estilo = estilos.filter((x) => x.slug === categoria)[0];
@@ -55,11 +53,7 @@ const ArticlePage = () => {
       const url = await GetImage(data);
       const autorData = await GetAutor(data.author);
       const categoriaData = await GetCategoria();
-      // setOGImage(url);
-      // setOGTitle(data.title.rendered
-      //   .replace("&#8211;", "-")
-      //   .replace("&#038;", "&"));
-
+      
       return {
         id: data.id,
         imagem: url,
@@ -94,14 +88,10 @@ const ArticlePage = () => {
 
     loadMateria();
     loadSidebar();
-  }, [setMateria, setLoading, categoria, slug, widgets, setWidgets, setOGImage, setOGTitle]);
+  }, [categoria, slug]);
 
   return (
     <Container>
-      {/* <meta property="og:image" content={OGImage} />
-      <meta property="og:title" content={OGTitle} />
-      <meta property="og:site-name" content="Em Cartaz" />
-      <meta property="og:type" content="article" /> */}
       <Header cor={estilo ? estilo.cor : undefined} />
       <Content>
         {!loading && materia ? (

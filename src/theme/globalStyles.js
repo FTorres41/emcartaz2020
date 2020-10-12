@@ -12,7 +12,8 @@ export default createGlobalStyle`
   }
 
   html{
-    overflow-y:auto!important;
+    overflow-y: auto !important;
+    margin-top: 0 !important;
   }
 
   body {

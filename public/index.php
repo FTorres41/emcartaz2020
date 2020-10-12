@@ -4,7 +4,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
+<script data-ad-client="ca-pub-8361688872668381" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=text/html; charset=UTF-8" />
+	<meta name="robots" content="index,follow" />
+	<meta name="googlebot" content="index,follow" />
+	<meta name="google-site-verification" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title><?php wp_title('&raquo; '); ?> - <?php bloginfo('name'); ?></title>
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+  <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon-ec.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -31,7 +40,8 @@
         work correctly both with client-side routing and a non-root public URL.
         Learn how to configure a non-root public URL by running `npm run wpbuild`.
     -->
-    <title>Em Cartaz</title>
+    <!-- <title>Em Cartaz</title> -->
+    <?php wp_head(); ?>
 </head>
     <body>
     <noscript>

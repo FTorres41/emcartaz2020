@@ -17,7 +17,7 @@ const FacebookCard = () => {
           style={{ border: "none", overflow: "hidden" }}
           scrolling="no"
           frameBorder="0"
-          allow="encrypted-media"
+        allow="encrypted-media"
         ></iframe>
       </Content>
     </Container>
