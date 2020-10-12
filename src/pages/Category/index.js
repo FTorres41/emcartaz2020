@@ -69,7 +69,7 @@ const CategoryPage = () => {
 
     loadMaterias();
     getTotals();
-  }, [catId, page, setMaterias]);
+  }, [catId, page, setMaterias, setPaginas]);
 
   const size = isMobile ? 160 : 300;
 

@@ -16,7 +16,6 @@ import { Row, Col } from "react-flexbox-grid";
 import { isMobile } from "react-device-detect";
 import { ImMenu } from "react-icons/im";
 import { FaSearch } from "react-icons/fa";
-// import AnuncieEmCartaz from "../../assets/anuncie_emcartaz.png";
 
 const Header = ({ cor }) => {
   const history = useHistory();
@@ -36,6 +35,7 @@ const Header = ({ cor }) => {
           return "emcartaz-roxo";
         case "cinema":
         case "dicas-do-em-cartaz":
+        case "turismo":
           return "emcartaz-verde-claro";
         case "danca":
           return "emcartaz-rosa";
@@ -119,13 +119,6 @@ const Header = ({ cor }) => {
 
   return (
     <HeaderBar>
-      <script type="text/javascript">
-        var lmdimgpixel=document.createElement('img');
-        lmdimgpixel.src='//secure.lomadee.com/pub.png?pid=22952260';
-        lmdimgpixel.id='lmd-verification-pixel-22952260';
-        lmdimgpixel.style='display:none'; var elmt =
-        document.getElementsByTagName('body')[0]; elmt.appendChild(lmdimgpixel);
-      </script>
       <div className="header-content">
         {isMobile ? (
           <Row>

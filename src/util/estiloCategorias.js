@@ -157,6 +157,70 @@ const EstiloCategorias = [
     cor: (props) => props.theme.red,
     logo: <LogoVermelho />,
   },
+  {
+    id: 398,
+    nome: "Festival de Curitiba",
+    slug: "festival-de-curitiba",
+    cor: (props) => props.theme.blue,
+    logo: <LogoAzul />,
+  },
+  {
+    id: 65046,
+    nome: "Dia das Mulheres",
+    slug: "dia-das-mulheres",
+    cor: (props) => props.theme.pink,
+    logo: <LogoRosa />,
+  },
+  {
+    id: 5682,
+    nome: "Gibicon",
+    slug: "gibicon",
+    cor: (props) => props.theme.orange,
+    logo: <LogoLaranja />,
+  },
+  {
+    id: 546,
+    nome: "Lupaluna",
+    slug: "lupaluna",
+    cor: (props) => props.theme.green,
+    logo: <LogoVerde />,
+  },
+  {
+    id: 17022,
+    nome: "Oficina de Música de Curitiba",
+    slug: "oficinademusica",
+    cor: (props) => props.theme.brown,
+    logo: <LogoMarrom />,
+  },
+  {
+    id: 65106,
+    nome: "St. Patrick's Day",
+    slug: "st-patricks-day",
+    cor: (props) => props.theme.midGreen,
+    logo: <LogoVerdeMid />,
+  },
+  {
+    id: 15963,
+    nome: "LABmoda",
+    slug: "labmoda",
+    cor: (props) => props.theme.yellow,
+    logo: <LogoAmarelo />,
+  },
+  {
+    id: 2352,
+    nome: "Destaques",
+    slug: "destaques",
+    cor: (props) => props.theme.blue,
+    logo: <LogoAzul />,
+  },
+  {
+    id: 2351,
+    nome: "Featured",
+    slug: "featured",
+    cor: (props) => props.theme.blue,
+    logo: <LogoAzul />,
+  },
+
 ];
 
 export default EstiloCategorias;

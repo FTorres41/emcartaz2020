@@ -1,10 +1,13 @@
 import styled from "styled-components";
-import Danielle from '../../assets/equipe/danielle-mei.png';
-import Eduardo from '../../assets/equipe/eduardo.png';
-import Fabio from '../../assets/equipe/fabio-torres.png';
-import Gisleine from '../../assets/equipe/gisleine-moreira.png';
-import Henrique from '../../assets/equipe/henrique.png';
-import Tamie from '../../assets/equipe/tamie.png';
+import Danielle from "../../assets/equipe/danielle.jpeg";
+import Eduardo from "../../assets/equipe/eduardo.jpeg";
+import Fabio from "../../assets/equipe/fabio.jpeg";
+import Gisleine from "../../assets/equipe/gisleine.jpeg";
+import Henrique from "../../assets/equipe/henrique.jpeg";
+import Tamie from "../../assets/equipe/tamie.jpeg";
+import Gabriel from "../../assets/equipe/gabriel.jpeg";
+import Juliana from "../../assets/equipe/juliana.jpeg";
+import Oscar from "../../assets/equipe/oscar.jpeg";
 
 export const Content = styled.div`
   max-width: 980px;
@@ -22,7 +25,7 @@ export const Article = styled.div`
   width: 100%;
 
   .categoria {
-    background-color: ${(props) => props.cor ? props.cor : props.theme.blue};
+    background-color: ${(props) => (props.cor ? props.cor : props.theme.blue)};
     width: fit-content;
     color: ${(props) => props.theme.white};
     padding: 5px;
@@ -33,8 +36,8 @@ export const Article = styled.div`
 
   hr {
     margin: 0 !important;
-    color: ${(props) => props.cor ? props.cor : props.theme.blue};
-    border: 2px solid ${(props) => props.cor ? props.cor : props.theme.blue};
+    color: ${(props) => (props.cor ? props.cor : props.theme.blue)};
+    border: 2px solid ${(props) => (props.cor ? props.cor : props.theme.blue)};
   }
 
   .autor {
@@ -84,8 +87,9 @@ export const Article = styled.div`
   .row {
     margin: 10px 0 !important;
 
-    .col-lg-2, .col-lg-10 {
-      display: flex; 
+    .col-lg-2,
+    .col-lg-10 {
+      display: flex;
       align-items: center;
 
       div {
@@ -109,9 +113,10 @@ export const Article = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 150px !important;
-  height: 150px !important;
-  background-size: 150px;
+  width: 130px !important;
+  height: 130px !important;
+  background-size: 145px;
+  background-position: center;
 
   &.danielle {
     background-image: url(${Danielle});
@@ -131,4 +136,13 @@ export const Image = styled.img`
   &.tamie {
     background-image: url(${Tamie});
   }
-`
+  &.gabriel {
+    background-image: url(${Gabriel});
+  }
+  &.juliana {
+    background-image: url(${Juliana});
+  }
+  &.oscar {
+    background-image: url(${Oscar});
+  }
+`;

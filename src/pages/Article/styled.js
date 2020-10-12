@@ -65,3 +65,17 @@ export const Article = styled.div`
     margin-bottom: 10px;
   }
 `;
+
+
+export const Widget = styled.div`
+  display: flex;
+  margin-top: 15px;
+
+  li {
+    list-style: none;
+  }
+
+  .widget-title {
+    display: none;
+  }
+`

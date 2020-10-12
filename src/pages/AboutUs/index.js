@@ -240,14 +240,6 @@ const AboutUsPage = () => {
                       >
                         fabio_torres
                       </a>
-                      <strong> Twitter: </strong>
-                      <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://twitter.com/fabio_torres"
-                      >
-                        fabio_torres
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -321,6 +313,99 @@ const AboutUsPage = () => {
                         href="https://www.instagram.com/duds86/"
                       >
                         duds86
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+            <h4>Gabriel Lisboa, jornalista e colunista</h4>
+            <Row>
+              <Col lg={2}>
+                <Image className="gabriel" />
+              </Col>
+              <Col lg={10}>
+                <div>
+                  <div className="redes-sociais">
+                    <div style={{ textAlign: "justify", flexDirection: "row" }}>
+                      <strong>Facebook:</strong>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href="https://www.facebook.com/gabriel.lisboa.9"
+                      >
+                        {" "}
+                        gabriel.lisboa.9{" "}
+                      </a>
+                      <strong> Instagram: </strong>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href="https://www.instagram.com/gabelisboaa/"
+                      >
+                        gabelisboaa
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+            <h4>Juliana Antunes, jornalista cultural</h4>
+            <Row>
+              <Col lg={2}>
+                <Image className="juliana" />
+              </Col>
+              <Col lg={10}>
+                <div>
+                  <div className="redes-sociais">
+                    <div style={{ textAlign: "justify", flexDirection: "row" }}>
+                      <strong>Facebook:</strong>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href="https://www.facebook.com/ju.oliveiraantunes"
+                      >
+                        {" "}
+                        ju.oliveiraantunes{" "}
+                      </a>
+                      <strong> Instagram: </strong>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href="https://www.instagram.com/jujuantunes/"
+                      >
+                        jujuantunes
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+            <h4>Oscar Colaço, jornalista cultural</h4>
+            <Row>
+              <Col lg={2}>
+                <Image className="oscar" />
+              </Col>
+              <Col lg={10}>
+                <div>
+                  <div className="redes-sociais">
+                    <div style={{ textAlign: "justify", flexDirection: "row" }}>
+                      <strong>Facebook:</strong>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href="https://www.facebook.com/oscarariel.colaco"
+                      >
+                        {" "}
+                        oscarariel.colaco{" "}
+                      </a>
+                      <strong> Instagram: </strong>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href="https://www.instagram.com/arielaces/"
+                      >
+                        arielaces
                       </a>
                     </div>
                   </div>

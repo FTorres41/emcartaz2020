@@ -73,7 +73,7 @@ const Columnists = () => {
 
   return (
     <Container>
-      <SectionTitle value={"Colunistas"} color={(props) => props.theme.red} />
+      <SectionTitle value={"Colunistas"} color={(props) => props.theme.red} goTo={() => history.push(`/colunas`)}/>
       <LogoRow>
         {colunistas &&
           colunistas.length > 0 &&

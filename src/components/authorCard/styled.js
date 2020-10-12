@@ -19,4 +19,10 @@ export const AuthorContainer = styled(Row)`
     p {
         font-size: 13px;
     }
+
+    .midias {
+        a {
+            margin-right: 15px;
+        }
+    }
 `

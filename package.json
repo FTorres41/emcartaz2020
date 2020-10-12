@@ -1,6 +1,6 @@
 {
   "name": "emcartaz2020",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@devloco/react-scripts-wptheme": "^3.4.1-wp.1",

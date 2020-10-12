@@ -6,7 +6,7 @@ import GetImage from "../../../../util/getImage";
 import api from "../../../../services/baseApi";
 import NewsCard from "../../../../components/newsCard";
 
-const HomeCategory = ({ id, color, nome }) => {
+const HomeCategory = ({ id, color, nome, slug }) => {
   const [itens, setItens] = useState([]);
   const history = useHistory();
 
@@ -41,7 +41,7 @@ const HomeCategory = ({ id, color, nome }) => {
 
   return (
     <Container>
-      <SectionTitle color={color} value={nome} goTo={() => history.push(`/${nome}/pagina/1`)}/>
+      <SectionTitle color={color} value={nome} goTo={() => history.push(`/${slug}/pagina/1`)}/>
       <Content>
         {itens &&
           itens.length > 0 &&
@@ -51,7 +51,7 @@ const HomeCategory = ({ id, color, nome }) => {
               id={item.id}
               titulo={item.titulo}
               imagem={item.imagem}
-              categoria={id}
+              categoriaSlug={slug}
               slug={item.slug}
               size={175}
             />
