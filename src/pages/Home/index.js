@@ -25,8 +25,8 @@ export default function Home() {
       setWidgets(data.widgets.filter((x) => x.name === "Banner Upload"));
     }
 
-    loadSidebar()
-  })
+    loadSidebar();
+  }, [])
 
   return (
     <Container>

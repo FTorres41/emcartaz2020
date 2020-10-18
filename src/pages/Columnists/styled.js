@@ -72,8 +72,8 @@ export const ColunaContainer = styled.div`
     margin: 10px;
     border: 2px solid ${(props) => props.theme.gray};
     border-radius: 90px;
-    max-width: 180px;
-    max-height: 180px;
+    max-width: 160px;
+    max-height: 160px;
   }
 
   p {

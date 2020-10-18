@@ -53,12 +53,13 @@ const ArticlePage = () => {
       const url = await GetImage(data);
       const autorData = await GetAutor(data.author);
       const categoriaData = await GetCategoria();
-      
+
       return {
         id: data.id,
         imagem: url,
         titulo: data.title.rendered
           .replace("&#8211;", "-")
+          .replace("&#8217;", "'")
           .replace("&#038;", "&"),
         autor: autorData,
         categoria: categoriaData,
@@ -151,10 +152,13 @@ const ArticlePage = () => {
                 />
               </Article>
             </Col>
-            <Col lg={4} style={{ marginTop: '30px' }}>
+            <Col lg={4} style={{ marginTop: "30px" }}>
               {widgets &&
                 widgets.map((widget) => (
-                  <Widget key={widget.id} dangerouslySetInnerHTML={{ __html: widget.rendered }} />
+                  <Widget
+                    key={widget.id}
+                    dangerouslySetInnerHTML={{ __html: widget.rendered }}
+                  />
                 ))}
             </Col>
           </Row>

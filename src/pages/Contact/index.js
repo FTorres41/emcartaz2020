@@ -3,6 +3,7 @@ import Container from "../../components/pageContainer";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import SocialShare from "../../components/socialShare";
+import ContactForm from "../../components/contactForm";
 import { Article, Content } from "./styled";
 import { Col, Row } from "react-flexbox-grid";
 
@@ -16,15 +17,18 @@ const ContactPage = () => {
           <hr />
           <div className="texto">
             <Row className="conteudo">
-              <Col lg={6}>
+              <Col lg={12}>
                 Sugestões de pauta, dúvidas, críticas, sugestões? Entre em
                 contato através do formulário abaixo ou se preferir envie sua
                 mensagem para o nosso email <strong>emcartaz@emcartaz.net</strong>
               </Col>
-              <Col lg={6}>
+              <Col lg={12}>
                 Se quiser anunciar no Em Cartaz é só enviar a proposta por
                 e-mail para <strong>comercial@emcartaz.net</strong>
               </Col>
+            </Row>
+            <Row>
+              <ContactForm />
             </Row>
             <Row style={{marginTop: "10px"}}>
               <Col lg={12}>
