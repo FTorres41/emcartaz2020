@@ -161,16 +161,6 @@ const Header = ({ cor }) => {
                 onClose={handleClose}
                 cor={cor ? cor : (props) => props.theme.blue}
               >
-                <MenuItem>
-                  <SearchInput
-                    type="text"
-                    placeholder="Busca"
-                    onChange={(e) => setBusca(e.target.value)}
-                  />
-                  <Button onClick={() => history.push(`/busca/${busca}`)}>
-                    <FaSearch />
-                  </Button>
-                </MenuItem>
                 {categorias &&
                   categorias.map((categoria) => (
                     <MenuItem
@@ -183,6 +173,32 @@ const Header = ({ cor }) => {
                     </MenuItem>
                   ))}
               </MobileMenu>
+              <SearchPopover
+                id={"search"}
+                open={open}
+                anchorEl={anchorSearch}
+                onClose={handleSearchClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                cor={cor ? cor : (props) => props.theme.blue}
+              >
+                <div className="search">
+                  <SearchInput
+                    type="text"
+                    placeholder="Busca"
+                    onChange={(e) => setBusca(e.target.value)}
+                  />
+                  <Button onClick={() => history.push(`/busca/${busca}`)}>
+                  <FaSearch />
+                  </Button>
+                </div>
+              </SearchPopover>
             </div>
           ) : (
             <Col lg={12}>

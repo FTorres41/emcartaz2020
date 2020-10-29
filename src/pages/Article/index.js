@@ -76,7 +76,10 @@ const ArticlePage = () => {
       const { data } = await api.get(`/posts/?slug=${slug}`);
 
       setMateria(await buildItem(data[0]));
+
       setLoading(false);
+      
+      window.instgrm.Embeds.process();
     }
 
     async function loadSidebar() {

@@ -8,14 +8,6 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: space-between;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-
-  @media(max-width: 800px) {
-    max-width: 580px;
-  }
-
-  @media(max-width: 500px) {
-    max-width: 350px;
-  }
 `;
 
 export const Article = styled.div`
@@ -24,7 +16,7 @@ export const Article = styled.div`
   width: 100%;
 
   .categoria {
-    background-color: ${(props) => props.cor ? props.cor : props.theme.blue};
+    background-color: ${(props) => (props.cor ? props.cor : props.theme.blue)};
     width: fit-content;
     color: ${(props) => props.theme.white};
     padding: 5px;
@@ -35,8 +27,8 @@ export const Article = styled.div`
 
   hr {
     margin: 0 !important;
-    color: ${(props) => props.cor ? props.cor : props.theme.blue};
-    border: 2px solid ${(props) => props.cor ? props.cor : props.theme.blue};
+    color: ${(props) => (props.cor ? props.cor : props.theme.blue)};
+    border: 2px solid ${(props) => (props.cor ? props.cor : props.theme.blue)};
   }
 
   .autor {
@@ -55,46 +47,32 @@ export const Article = styled.div`
 
   img {
     vertical-align: middle;
-    max-width: 630px;
-    width: 100%;
     height: auto;
-    margin-bottom: 20px;
-    border: 0;
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid lightgray;
+    border-radius: 100px;  }
 
-    @media(max-width: 800px) {
-      max-width: 530px;
+  .texto {
+    p {
+      display: inline-block;
+      text-align: justify;
     }
-  
-    @media(max-width: 500px) {
-      max-width: 330px;
+  }
+  .row {
+    margin: 10px 0 !important;
+    align-items: center;
+
+    .col-lg-9 {
+      div {
+        padding-top: 0 !important;
+        padding-bottom 5px;
+        margin-bottom: 10px;
+
+        h2 {
+          margin: 0 !important;
+        }
+      }
     }
-  }
-
-  p {
-    margin-bottom: 10px;
-  }
-
-  iframe {
-    width: 100%;
-  }
-
-  .wp-caption-text {
-    font-size: 10px;
-    margin-top: -15px;
-    margin-bottom: 15px;
   }
 `;
-
-
-export const Widget = styled.div`
-  display: flex;
-  margin-top: 15px;
-
-  li {
-    list-style: none;
-  }
-
-  .widget-title {
-    display: none;
-  }
-`

@@ -137,5 +137,6 @@ export const LogoContainer = styled.div`
     background-image: url(${LogoVermelhoMid});
     width: 100%;
     height: 100%;
+    background-size: contain;
   }
 `;

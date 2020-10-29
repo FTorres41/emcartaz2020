@@ -2,13 +2,13 @@ import React from 'react';
 import { AiFillYoutube, AiFillFacebook, AiFillInstagram } from 'react-icons/ai';
 
 const Categorias = [
-    // {
-    //     nome: 'Home',
-    //     link: '/'
-    // },
     {
         nome: 'Sobre Nós',
         link: '/sobre-nos'
+    },
+    {
+        nome: 'Colunistas',
+        link: '/colunistas'
     },
     {
         nome: 'Contato',

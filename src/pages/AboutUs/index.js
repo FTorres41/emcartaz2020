@@ -326,6 +326,10 @@ const AboutUsPage = () => {
               </Col>
               <Col lg={10}>
                 <div>
+                  Gabriel é formado em Fotografia, desenha e escreve por paixão.
+                  Apaixonou-se por cinema pela capacidade que o cinema tem de
+                  nos aproximar por novas histórias, momentos e experiências.
+                  Não dispensa uma boa prosa sobre a sétima em nenhum ocasião.
                   <div className="redes-sociais">
                     <div style={{ textAlign: "justify", flexDirection: "row" }}>
                       <strong>Facebook:</strong>
@@ -388,6 +392,11 @@ const AboutUsPage = () => {
               </Col>
               <Col lg={10}>
                 <div>
+                  Jornalista por formação desde 2009, Oscar é amante da música,
+                  principalmente do Rock n’ Roll e Heavy Metal. A música é uma
+                  das suas grandes paixões. O mundo geek também faz parte de sua
+                  vida e imaginário. Seja sobre belas e pesadas canções ou outro
+                  tema, a paixão pode ser vista em tudo que escreve.
                   <div className="redes-sociais">
                     <div style={{ textAlign: "justify", flexDirection: "row" }}>
                       <strong>Facebook:</strong>
@@ -414,7 +423,10 @@ const AboutUsPage = () => {
             </Row>
           </div>
         </Article>
-        <SocialShare url={window.location.href} title={"Sobre Nós - Em Cartaz"} />
+        <SocialShare
+          url={window.location.href}
+          title={"Sobre Nós - Em Cartaz"}
+        />
       </Content>
       <Footer />
     </Container>

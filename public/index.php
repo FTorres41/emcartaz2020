@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
 <script data-ad-client="ca-pub-8361688872668381" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="//www.instagram.com/embed.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="robots" content="index,follow" />
 	<meta name="googlebot" content="index,follow" />
