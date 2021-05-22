@@ -7,6 +7,7 @@ import CoreStyles from 'react-awesome-slider/src/core/styles.scss';
 import AnimationStyles from 'react-awesome-slider/src/styled/fold-out-animation/fold-out-animation.scss';
 import { GalleryContainer } from './styled';
 import GetImage from '../../../../util/getImage';
+import GetFeaturedImage from '../../../../util/getFeaturedImage';
 import EstiloCategorias from "../../../../util/estiloCategorias";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
@@ -22,12 +23,17 @@ const Gallery = () => {
     
             for (let i = 0; i < data.length; i++) {
                 const dt = data[i];
-                const url = await GetImage(dt);
+                let url = await GetFeaturedImage(dt.slug);
     
+                if (!url)
+                    url = await GetImage(dt);
+
                 destaques.push({
                     id: dt.id,
                     imagem: url,
-                    titulo: dt.title.rendered.replace('&#8211;', '-').replace("&#8217;", "'").replace("&#038;", "&"),
+                    titulo: dt.title.rendered.replace('&#8211;', '-').replace("&#8217;", "'")
+                                            .replace("&#8220;", '"').replace("&#8221;", '"')
+                                            .replace("&#8216;", "'").replace("&#038;", "&"),
                     link: dt.link,
                     slug: dt.slug,
                     categoria: categorias.filter(x => dt.categories.includes(x.id))[0],

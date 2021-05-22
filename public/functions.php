@@ -248,7 +248,8 @@ function create_post_type() {
         'name' => __( 'V&iacute;deos' ),
         'singular_name' => __( 'V&iacute;deos' )
       ),
-      'public' => true,
+	  'public' => true,
+	  'show_in_rest' => true,
       'has_archive' => true,
 			'supports' => array( 'title', 'editor', 'excerpt' ),
     )
@@ -259,7 +260,8 @@ function create_post_type() {
         'name' => __( 'Promo&ccedil;&otilde;es' ),
         'singular_name' => __( 'Promo&ccedil;&otilde;es' )
       ),
-      'public' => true,
+	  'public' => true,
+      'show_in_rest' => true,
       'has_archive' => true,
 			'supports' => array( 'title', 'editor', 'comments', 'excerpt', 'custom-fields', 'thumbnail' ),
     )

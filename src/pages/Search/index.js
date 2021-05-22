@@ -38,7 +38,9 @@ const SearchPage = () => {
         itens.push({
           id: dt.id,
           imagem: url,
-          titulo: dt.title.rendered.replace('&#8211;', '-').replace("&#8217;", "'").replace("&#038;", "&"),
+          titulo: dt.title.rendered.replace('&#8211;', '-').replace("&#8217;", "'")
+                                  .replace("&#8220;", '"').replace("&#8221;", '"')
+                                  .replace("&#8216;", "'").replace("&#038;", "&"),
           data: moment(dt.date).format("DD/MM/YYYY").toString(),
           resumo: {
             __html: dt.excerpt.rendered,

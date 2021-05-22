@@ -52,7 +52,9 @@ const ColumnistsPage = () => {
         itens.push({
           id: dt.id,
           imagem: url,
-          titulo: dt.title.rendered.replace('&#8211;', '-').replace("&#8217;", "'").replace("&#038;", "&"),
+          titulo: dt.title.rendered.replace('&#8211;', '-').replace("&#8217;", "'")
+                                  .replace("&#8220;", '"').replace("&#8221;", '"')
+                                  .replace("&#8216;", "'").replace("&#038;", "&"),
           data: moment(dt.date).format("DD/MM/YYYY").toString(),
           resumo: {
             __html: dt.excerpt.rendered,
@@ -123,7 +125,7 @@ const ColumnistsPage = () => {
 
     async function loadMaterias() {
       const { data } = await api.get(
-        `/posts?page=${page}&per_page=18&categories=66110,66111,66112,66113,66114,66115`
+        `/posts?page=${page}&per_page=18&categories=66110,66111,66112,66113,66114,66115,36005`
       );
 
       const itens = await buildItens(data);

@@ -13,7 +13,7 @@ export default function Routes() {
   return (
     <Switch>
       <Route component={SearchPage} path="/busca/:busca" />
-      <Route component={ColumnistsPage} path='/colunas' />
+      <Route component={ColumnistsPage} path='/colunas-em-cartaz' />
       <Route component={CategoryPage} path="/:categoria/:catId/pagina/:pagina" />
       <Route component={ArticlePage} path="/:categoria/:slug" />
       <Route component={AboutUsPage} path="/sobre-nos" />

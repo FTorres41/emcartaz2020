@@ -48,6 +48,13 @@ export const TabsRow = styled(Row)`
     letter-spacing: normal !important;
     padding: 6px 10px !important;
   }
+
+  .mobile-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 `;
 
 export const MobileMenu = styled(Menu)`

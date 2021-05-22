@@ -21,7 +21,9 @@ const HomeCategory = ({ id, color, nome, slug }) => {
         destaques.push({
           id: dt.id,
           imagem: url,
-          titulo: dt.title.rendered.replace('&#8211;', '-').replace("&#8217;", "'").replace("&#038;", "&"),
+          titulo: dt.title.rendered.replace('&#8211;', '-').replace("&#8217;", "'")
+                                  .replace("&#8220;", '"').replace("&#8221;", '"')
+                                  .replace("&#8216;", "'").replace("&#038;", "&"),
           link: dt.link,
           slug: dt.slug,
         });
@@ -41,7 +43,7 @@ const HomeCategory = ({ id, color, nome, slug }) => {
 
   return (
     <Container>
-      <SectionTitle color={color} value={nome} goTo={() => history.push(`/${slug}/pagina/1`)}/>
+      <SectionTitle color={color} value={nome} goTo={() => history.push(`/${slug}/${id}/pagina/1`)}/>
       <Content>
         {itens &&
           itens.length > 0 &&

@@ -50,18 +50,20 @@ export const GalleryContainer = styled.div`
         background-color: black;
         width: 100%;
         opacity: 0.8;
-        top: 520px;
+        top: 510px;
         position: absolute;
         height: 90px;
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         cursor: pointer;
+        display: flex;
+        align-items: center;
 
         div {
           font-size: 36px;
           display: flex;
           color: ${(props) => props.theme.white};
           text-decoration: none;
-          margin: 20px;
+          margin-left: 20px;
         }
       }
     }

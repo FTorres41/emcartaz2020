@@ -59,8 +59,11 @@ const ArticlePage = () => {
         imagem: url,
         titulo: data.title.rendered
           .replace("&#8211;", "-")
+          .replace("&#8216;", "'")
           .replace("&#8217;", "'")
-          .replace("&#038;", "&"),
+          .replace("&#038;", "&")
+          .replace("&#8220;", '"')
+          .replace("&#8221;", '"'),
         autor: autorData,
         categoria: categoriaData,
         data: moment(data.date).format("DD/MM/YYYY").toString(),

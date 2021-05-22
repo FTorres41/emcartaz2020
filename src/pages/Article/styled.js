@@ -56,7 +56,7 @@ export const Article = styled.div`
   img {
     vertical-align: middle;
     max-width: 630px;
-    width: 100%;
+    // width: 100%;
     height: auto;
     margin-bottom: 20px;
     border: 0;

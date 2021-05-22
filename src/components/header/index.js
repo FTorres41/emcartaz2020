@@ -32,6 +32,7 @@ const Header = ({ cor }) => {
         case "artes":
           return "emcartaz-amarelo";
         case "bares-e-baladas":
+        case "ccxp":
           return "emcartaz-roxo";
         case "cinema":
         case "dicas-do-em-cartaz":
@@ -104,7 +105,7 @@ const Header = ({ cor }) => {
     if (slug !== "colunas") {
       history.push(`/${slug}/${id}/pagina/1`);
     } else {
-      history.push(`/${slug}`);
+      history.push(`/${slug}-em-cartaz`);
     }
     handleClose();
   };
@@ -113,7 +114,7 @@ const Header = ({ cor }) => {
     if (slug !== "colunas") {
       history.push(`/${slug}/${id}/pagina/1`);
     } else {
-      history.push(`/${slug}`);
+      history.push(`/${slug}-em-cartaz`);
     }
   };
 
@@ -145,7 +146,7 @@ const Header = ({ cor }) => {
         )}
         <TabsRow cor={cor ? cor : (props) => props.theme.blue}>
           {isMobile ? (
-            <div>
+            <div className="mobile-menu">
               <Button
                 aria-controls="simple-menu"
                 aria-haspopup="true"
@@ -173,6 +174,14 @@ const Header = ({ cor }) => {
                     </MenuItem>
                   ))}
               </MobileMenu>
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={handleSearchClick}
+                style={{ right: 0 }}
+              >
+                <FaSearch color={"white"} size={"1.8em"} />
+              </Button>
               <SearchPopover
                 id={"search"}
                 open={open}
@@ -195,7 +204,7 @@ const Header = ({ cor }) => {
                     onChange={(e) => setBusca(e.target.value)}
                   />
                   <Button onClick={() => history.push(`/busca/${busca}`)}>
-                  <FaSearch />
+                    Buscar
                   </Button>
                 </div>
               </SearchPopover>

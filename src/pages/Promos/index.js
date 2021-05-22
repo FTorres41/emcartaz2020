@@ -7,21 +7,24 @@ import api from "../../services/baseApi";
 import { Content, PaginationContainer } from "./styled";
 import moment from "moment";
 import GetImage from "../../util/getImage";
-import EstiloCategorias from "../../util/estiloCategorias";
 import { Pagination } from "@material-ui/lab";
 import NewsCard from "../../components/newsCard";
 import { isMobile } from 'react-device-detect';
 
-const CategoryPage = () => {
+const PromoPage = () => {
   const history = useHistory();
 
-  const { catId, categoria, pagina } = useParams();
-  const [materias, setMaterias] = useState([]);
+  const { pagina } = useParams();
+  const [promocoes, setPromocoes] = useState([]);
   const [page, setPage] = useState(pagina);
   const [paginas, setPaginas] = useState(1);
 
-  const estilos = EstiloCategorias;
-  const estilo = estilos.filter(x => x.id === parseInt(catId))[0];
+  const estilo =   {
+    id: 7,
+    nome: "Promoções",
+    slug: "promo",
+    cor: (props) => props.theme.yellow,
+  };
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -53,25 +56,25 @@ const CategoryPage = () => {
       return itens;
     }
 
-    async function loadMaterias() {
+    async function loadPromocoes() {
       const { data } = await api.get(
-        `/posts?page=${page}&per_page=18&categories=${catId}`
+        `/promo?page=${page}&per_page=18`
       );
 
       const itens = await buildItens(data);
-      setMaterias(itens);
+      setPromocoes(itens);
     }
 
     async function getTotals() {
-      const { data } = await api.get(`/categories/${catId}`);
+      const { data } = await api.get(`/promo`);
 
       const totalPag = Math.ceil(data.count / 10);
       setPaginas(totalPag);
     }
 
-    loadMaterias();
+    loadPromocoes();
     getTotals();
-  }, [catId, page, setMaterias, setPaginas]);
+  }, [page, setPaginas]);
 
   const size = isMobile ? 160 : 300;
 
@@ -79,24 +82,24 @@ const CategoryPage = () => {
     <Container>
       <Header cor={estilo ? estilo.cor : undefined}/>
       <Content cor={estilo ? estilo.cor : undefined}>
-          {materias &&
-            materias.length > 0 &&
-            materias.map((materia) => (
+          {promocoes &&
+            promocoes.length > 0 &&
+            promocoes.map((promo) => (
                 <div className="info">
-                  <div className="destaque">{materia.data}</div>
+                  <div className="destaque">{promo.data}</div>
                   <NewsCard
-                    key={materia.id}
-                    id={materia.id}
-                    categoria={catId}
-                    categoriaSlug={categoria}
-                    titulo={materia.titulo}
-                    imagem={materia.imagem}
-                    slug={materia.slug}
+                    key={promo.id}
+                    id={promo.id}
+                    categoria={0}
+                    categoriaSlug={'promo'}
+                    titulo={promo.titulo}
+                    imagem={promo.imagem}
+                    slug={promo.slug}
                     size={size}
                   />
                   <div
                     className="destaque leia-mais"
-                    onClick={() => history.push(`/${categoria}/${materia.slug}`)}
+                    onClick={() => history.push(`/promo/${promo.slug}`)}
                   >
                     Leia mais
                   </div>
@@ -111,4 +114,4 @@ const CategoryPage = () => {
   );
 };
 
-export default CategoryPage;
+export default PromoPage;

@@ -220,6 +220,13 @@ const EstiloCategorias = [
     cor: (props) => props.theme.blue,
     logo: <LogoAzul />,
   },
+  {
+    id: 66681,
+    nome: "CCXP",
+    slug: "ccxp",
+    cor: (props) => props.theme.purple,
+    logo: <LogoRoxo />,
+  },
 
 ];
 
