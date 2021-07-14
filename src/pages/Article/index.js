@@ -27,6 +27,7 @@ import {
 } from "react-icons/ai";
 import { FaTelegram, FaWhatsappSquare } from "react-icons/fa";
 import { Row, Col } from "react-flexbox-grid";
+import { decodeEntities } from "@wordpress/html-entities";
 
 const ArticlePage = () => {
   const { slug, categoria } = useParams();
@@ -57,13 +58,7 @@ const ArticlePage = () => {
       return {
         id: data.id,
         imagem: url,
-        titulo: data.title.rendered
-          .replace("&#8211;", "-")
-          .replace("&#8216;", "'")
-          .replace("&#8217;", "'")
-          .replace("&#038;", "&")
-          .replace("&#8220;", '"')
-          .replace("&#8221;", '"'),
+        titulo: decodeEntities(data.title.rendered),
         autor: autorData,
         categoria: categoriaData,
         data: moment(data.date).format("DD/MM/YYYY").toString(),
