@@ -118,6 +118,12 @@ const Header = ({ cor }) => {
     }
   };
 
+  window.onkeypress = function(event) {
+    if (event.keyCode === 13 && open && busca) {
+      history.push(`/busca/${busca}`);
+    }
+ }
+
   return (
     <HeaderBar>
       <div className="header-content">
