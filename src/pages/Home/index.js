@@ -52,6 +52,16 @@ export default function Home() {
       <LatestNews />
       <Columnists />
       <ModuleContainer>
+        <WidgetContainer>
+          {widgets && widgets[0] && (
+            <Widget
+              key={widgets[0].id}
+              dangerouslySetInnerHTML={{ __html: widgets[0].rendered }}
+            />
+          )}
+        </WidgetContainer>
+      </ModuleContainer>
+      <ModuleContainer>
         {Categorias.slice(0, 3).map((categoria) => (
           <Category
             key={categoria.id}
@@ -63,9 +73,19 @@ export default function Home() {
         ))}
       </ModuleContainer>
       <ModuleContainer>
+        <WidgetContainer>
+          {widgets && widgets[1] && (
+            <Widget
+              key={widgets[1].id}
+              dangerouslySetInnerHTML={{ __html: widgets[1].rendered }}
+            />
+          )}
+        </WidgetContainer>
+      </ModuleContainer>
+      <ModuleContainer>
         <div className="midias-sociais">
           {/* <YouTubeCard /> */}
-          <div style={{ width: '380px' }}>
+          <div style={{ width: "380px" }}>
             <Category
               key={12}
               id={12}
@@ -80,13 +100,12 @@ export default function Home() {
       </ModuleContainer>
       <ModuleContainer>
         <WidgetContainer>
-          {widgets &&
-            widgets.map((widget) => (
-              <Widget
-                key={widget.id}
-                dangerouslySetInnerHTML={{ __html: widget.rendered }}
-              />
-            ))}
+          {widgets && widgets[2] && (
+            <Widget
+              key={widgets[2].id}
+              dangerouslySetInnerHTML={{ __html: widgets[2].rendered }}
+            />
+          )}
         </WidgetContainer>
       </ModuleContainer>
       <ModuleContainer>
@@ -99,6 +118,16 @@ export default function Home() {
             slug={categoria.slug}
           />
         ))}
+      </ModuleContainer>
+      <ModuleContainer>
+        <WidgetContainer>
+          {widgets && widgets[3] && (
+            <Widget
+              key={widgets[3].id}
+              dangerouslySetInnerHTML={{ __html: widgets[3].rendered }}
+            />
+          )}
+        </WidgetContainer>
       </ModuleContainer>
       <Footer />
     </Container>

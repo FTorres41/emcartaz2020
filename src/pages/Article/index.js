@@ -89,7 +89,7 @@ const ArticlePage = () => {
     }
 
     loadMateria();
-    loadSidebar();
+    // loadSidebar();
   }, [categoria, slug]);
 
   return (
@@ -98,7 +98,7 @@ const ArticlePage = () => {
       <Content>
         {!loading && materia ? (
           <Row>
-            <Col lg={8} sm={12}>
+            <Col lgOffset={1} lg={9} sm={12}>
               <Article cor={estilo ? estilo.cor : undefined}>
                 <div className="categoria">{materia.categoria}</div>
                 <hr />

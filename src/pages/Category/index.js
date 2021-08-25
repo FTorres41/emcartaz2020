@@ -25,6 +25,7 @@ const CategoryPage = () => {
   const estilo = estilos.filter(x => x.id === parseInt(catId))[0];
 
   const handleChange = (event, value) => {
+    window.scrollTo(0, 0);
     setPage(value);
   };
 
