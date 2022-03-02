@@ -16,7 +16,7 @@
     "history": "4.10.1",
     "jsonp": "^0.2.1",
     "moment": "^2.27.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "origen-react-instagram-feed": "^0.0.3",
     "rbx": "^2.2.0",
     "react": "^16.13.1",
