@@ -46,7 +46,7 @@ export const TabsRow = styled(Row)`
 
   .MuiTab-root {
     letter-spacing: normal !important;
-    padding: 6px 10px !important;
+    padding: 6px 9px !important;
   }
 
   .mobile-menu {

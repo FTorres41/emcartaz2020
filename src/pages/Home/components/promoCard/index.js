@@ -1,57 +1,86 @@
 import React, { useEffect, useState } from "react";
-import { api, apiKey, playlistId } from "../../../../services/youtubeApi";
-import YouTube from "@u-wave/react-youtube";
-import { Container, Content, VideoItem } from "./styled";
+import api from "../../../../services/baseApi";
+import { Container, Content } from "./styled";
 import SectionTitle from "../../../../components/sectionTitle";
-import { List, ListItemText } from "@material-ui/core";
-import { AiFillYoutube } from "react-icons/ai";
-import {isTablet} from 'react-device-detect';
+import { isTablet } from "react-device-detect";
+import moment from "moment";
+import GetImage from "../../../../util/getImage";
+import Typography from "@material-ui/core/Typography";
+import { Card, CardActionArea } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
-const PromoCard = () => {
-  const [videoId, setVideoId] = useState("");
-  const [videos, setVideos] = useState([]);
-
+const PromoCard = ({ data }) => {
+  const [promocoes, setPromocoes] = useState([]);
+  const history = useHistory();
   const width = isTablet ? 560 : 360;
 
   useEffect(() => {
-    async function loadVideos() {
-      const { data } = await api.get(
-        `playlistItems?part=snippet&playlistId=${playlistId}&key=${apiKey}`
-      );
+    // async function buildItens(data) {
+    //   let itens = [];
 
-      if (data && data.items.length > 0) {
-        setVideoId(data.items[0].snippet.resourceId.videoId);
-        setVideos(data.items.splice(0, 3));
+    //   for (let i = 0; i < data.length; i++) {
+    //     const dt = data[i];
+    //     const url = await GetImage(dt);
+
+    //     itens.push({
+    //       id: dt.id,
+    //       imagem: url,
+    //       titulo: dt.title.rendered
+    //         .replace("&#8211;", "-")
+    //         .replace("&#8217;", "'")
+    //         .replace("&#8220;", '"')
+    //         .replace("&#8221;", '"')
+    //         .replace("&#8216;", "'")
+    //         .replace("&#038;", "&"),
+    //       data: moment(dt.date).format("DD/MM/YYYY").toString(),
+    //       resumo: {
+    //         __html: `${dt.excerpt.rendered.slice(3, 253)}...`,
+    //       },
+    //       link: dt.link,
+    //       slug: dt.slug,
+    //     });
+    //   }
+
+    //   return itens;
+    // }
+
+    async function loadPromocoes() {
+      if (data && data.length > 0) {
+        // const itens = await buildItens(data);
+        setPromocoes(data);
       }
     }
 
-    loadVideos();
-  }, []);
+    loadPromocoes();
+  }, [data]);
 
   return (
     <Container width={width}>
-      <SectionTitle
-        value={"TV Em Cartaz"}
-        color={(props) => props.theme.pink}
-      />
+      <SectionTitle value={"Promoções"} color={(props) => props.theme.yellow} />
       <Content>
-        <YouTube video={videoId} autoplay={false} width={width} height={240} />
-        <List>
-          {videos &&
-            videos.length > 0 &&
-            videos.map((video) => (
-              <VideoItem
-                key={video.snippet.resourceId.videoId}
-                onClick={() => setVideoId(video.snippet.resourceId.videoId)}
-              >
-                <AiFillYoutube size={20} />
-                <ListItemText>
-                  {"  "}
-                  {video.snippet.title}
-                </ListItemText>
-              </VideoItem>
-            ))}
-        </List>
+        {promocoes &&
+          promocoes.length > 0 &&
+          promocoes.map((promocao) => (
+            <a style={{textDecoration: 'none'}} href={`/promo/${promocao.slug}`}>
+              <Card style={{boxShadow: 'none', borderRadius: '0'}}>
+                <CardActionArea onClick={() => history.push(`/promo/${promocao.slug}`)}>
+                  <div key={promocao.id}>
+                    <img
+                      src={promocao.imagem}
+                      alt={promocao.titulo}
+                      style={{ maxWidth: "360px" }}
+                    />
+                    <Typography gutterBottom variant="h4" component="h3">
+                      {promocao.titulo}
+                    </Typography>
+                    <Typography gutterBottom variant="p" component="h4" style={{textAlign: 'justify'}}>
+                      {promocao.resumo.__html}
+                    </Typography>
+                  </div>
+                </CardActionArea>
+              </Card>
+            </a>
+          ))}
       </Content>
     </Container>
   );

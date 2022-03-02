@@ -110,8 +110,8 @@ const EstiloCategorias = [
   },
   {
     id: 66114,
-    nome: "Gostosuras da Gi",
-    slug: "gostosuras-da-gi",
+    nome: "Tem Sereia na Cozinha",
+    slug: "tem-sereia-na-cozinha",
     cor: (props) => props.theme.midPink,
     logo: <LogoRosaMid />,
   },
@@ -222,12 +222,39 @@ const EstiloCategorias = [
   },
   {
     id: 66681,
-    nome: "CCXP",
-    slug: "ccxp",
+    nome: "Geek",
+    slug: "geek",
     cor: (props) => props.theme.purple,
     logo: <LogoRoxo />,
   },
-
+  {
+    id: 68571,
+    nome: "Natal",
+    slug: "natal",
+    cor: (props) => props.theme.red,
+    logo: <LogoVermelho />,
+  },
+  {
+    id: 277,
+    nome: "Entrevistas",
+    slug: "entrevistas",
+    cor: (props) => props.theme.brown,
+    logo: <LogoMarrom />,
+  },
+  {
+    id: 0,
+    nome: "Promoções",
+    slug: "promo",
+    cor: (props) => props.theme.yellow,
+    logo: <LogoAmarelo />,
+  },
+  {
+    id: 69258,
+    nome: "Carnaval",
+    slug: "carnaval",
+    cor: (props) => props.theme.midPink,
+    logo: <LogoRosaMid />,
+  },
 ];
 
 export default EstiloCategorias;

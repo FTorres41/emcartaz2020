@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import SectionTitle from "../../../../components/sectionTitle";
 import api from "../../../../services/baseApi";
-import GostosurasDaGi from "../../../../assets/gostosuras-da-gi.png";
+import TemSereiaNaCozinha from "../../../../assets/tem-sereia-na-cozinha.png";
 import Maternagem from "../../../../assets/maternagem-2.png";
 import MinhaPlaylist from "../../../../assets/minha-playlist-2.png";
 import OnTheRocks from "../../../../assets/on-the-rocks-home.png";
@@ -23,8 +23,8 @@ const Columnists = () => {
       data.forEach((element) => {
         let image = undefined;
         switch (element.name) {
-          case "Gostosuras da Gi":
-            image = GostosurasDaGi;
+          case "Tem Sereia na Cozinha":
+            image = TemSereiaNaCozinha;
             break;
           case "Maternagem":
             image = Maternagem;

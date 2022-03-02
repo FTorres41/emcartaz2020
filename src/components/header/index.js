@@ -30,9 +30,10 @@ const Header = ({ cor }) => {
     if (categoria) {
       switch (categoria) {
         case "artes":
+        case "promo":
           return "emcartaz-amarelo";
         case "bares-e-baladas":
-        case "ccxp":
+        case "geek":
           return "emcartaz-roxo";
         case "cinema":
         case "dicas-do-em-cartaz":
@@ -56,12 +57,15 @@ const Header = ({ cor }) => {
         case "variedades":
           return "emcartaz-marrom";
         case "gostosuras-da-gi":
+        case "tem-sereia-na-cozinha":
+        case "carnaval":
           return "emcartaz-rosa-mid";
         case "maternagem":
           return "emcartaz-azul-mid";
         case "minha-playlist":
           return "emcartaz-verde-mid";
         case "on-the-rocks":
+        case "natal":
           return "emcartaz-vermelho-mid";
         case "setima-arte":
           return "emcartaz-amarelo-mid";
@@ -118,11 +122,11 @@ const Header = ({ cor }) => {
     }
   };
 
-  window.onkeypress = function(event) {
+  window.onkeypress = function (event) {
     if (event.keyCode === 13 && open && busca) {
       history.push(`/busca/${busca}`);
     }
- }
+  };
 
   return (
     <HeaderBar>

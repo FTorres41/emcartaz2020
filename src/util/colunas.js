@@ -1,9 +1,9 @@
 const Colunas = [
   {
     id: 66114,
-    link: "/colunas/gostosuras-da-gi/",
-    name: "Gostosuras da Gi",
-    slug: "gostosuras-da-gi",
+    link: "/colunas/tem-sereia-na-cozinha/",
+    name: "Tem Sereia Na Cozinha",
+    slug: "tem-sereia-na-cozinha",
     parent: 36005,
   },
   {

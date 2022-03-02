@@ -27,6 +27,10 @@ export default createGlobalStyle`
     width: 100%;
     margin: 0;
   }
+
+  ol {
+    margin-left: 20px;
+  }
 `;
 
 export const theme = {

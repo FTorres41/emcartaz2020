@@ -19,7 +19,7 @@ const LatestNews = () => {
       let news = [];
       for (let i = 0; i < data.length; i++) {
         const dt = data[i];
-        const itemCategories = dt.categories.filter(x => x !== 2352 && x !== 2351);
+        const itemCategories = dt.categories.filter(x => x !== 2351); /*x !== 2352 &&*/ 
         var imageUrl = await GetImage(dt);
 
         news.push({

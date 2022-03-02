@@ -6,7 +6,7 @@ import Footer from "../../components/footer";
 import SocialShare from "../../components/socialShare";
 import { Article, Content } from "./styled";
 import { Col, Row } from "react-flexbox-grid";
-import GostosurasDaGi from "../../assets/gostosuras-da-gi.png";
+import TemSereiaNaCozinha from "../../assets/tem-sereia-na-cozinha.png";
 import Maternagem from "../../assets/maternagem-2.png";
 import MinhaPlaylist from "../../assets/minha-playlist-2.png";
 import OnTheRocks from "../../assets/on-the-rocks-home.png";
@@ -27,16 +27,16 @@ const AboutColumnsPage = () => {
           <div className="texto">
             <Row>
               <Col lg={3}>
-                <img src={GostosurasDaGi} alt="Gostosuras da Gi" goTo="" />
+                <img src={TemSereiaNaCozinha} alt="Tem Sereia na Cozinha" goTo="" />
               </Col>
               <Col lg={9}>
                 <SectionTitle
-                  value="Gostosuras da Gi"
+                  value="Tem Sereia na Cozinha"
                   color={(props) => props.theme.midPink}
-                  goTo={() => history.push("/gostosuras-da-gi/66114/pagina/1")}
+                  goTo={() => history.push("/tem-sereia-na-cozinha/66114/pagina/1")}
                 />
                 <p style={{ marginBottom: "15px" }}>
-                  O Gostosuras da Gi agora tem uma coluna agora no Em Cartaz. E
+                  O Tem Sereia na Cozinha agora tem uma coluna agora no Em Cartaz. E
                   nós vamos falar sobre gostosuras, lógico! Vamos trocar dicas e
                   receitas que fazem bem pro corpo e pra alma, porque comida
                   também acalanta a alma! Um beijo e um queijo!

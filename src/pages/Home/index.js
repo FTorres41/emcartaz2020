@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Container from "../../components/pageContainer";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
-import YouTubeCard from "./components/youtubeCard";
 import InstagramCard from "./components/instagramCard";
 import FacebookCard from "./components/facebookCard";
 import Gallery from "./components/gallery";
@@ -13,14 +12,49 @@ import { ModuleContainer, Widget, WidgetContainer } from "./styled";
 import Categorias from "../../util/categoriasHome";
 import Category from "./components/category";
 import sidebarApi from "../../services/sidebarApi";
-import acfApi from "../../services/acfApi";
+import api from "../../services/baseApi";
+import moment from "moment";
+import GetImage from "../../util/getImage";
+import EncodeString from "../../util/encodeString";
+import EstiloCategorias from "../../util/estiloCategorias";
 
 export default function Home() {
   const [widgets, setWidgets] = useState([]);
-  // const [promo, setPromo] = useState({});
+  const [promocoes, setPromocoes] = useState([]);
+  const [featured, setFeatured] = useState({});
 
   useEffect(() => {
-    async function loadSidebar() {
+    async function buildItens(data) {
+      let itens = [];
+
+      for (let i = 0; i < data.length; i++) {
+        const dt = data[i];
+        const url = await GetImage(dt);
+
+        itens.push({
+          id: dt.id,
+          imagem: url,
+          titulo: EncodeString(dt.title.rendered),
+          data: moment(dt.date).format("DD/MM/YYYY").toString(),
+          resumo: { __html: `${dt.excerpt.rendered.slice(3, 253)}...` },
+          link: dt.link,
+          slug: dt.slug,
+        });
+      }
+
+      return itens;
+    }
+
+    async function getPromo() {
+      const { data } = await api.get(`/promo?page=1&per_page=1`);
+      const openPromo = data.filter((d) => d.acf.promo_status !== "Encerrada");
+      if (openPromo && openPromo.length > 0) {
+        const itens = await buildItens(openPromo);
+        setPromocoes(itens);
+      }
+    }
+
+    async function loadBanners() {
       const { data } = await sidebarApi.get(
         "/wp-rest-api-sidebars/v1/sidebars/sidebar-posts-widget-area"
       );
@@ -28,21 +62,14 @@ export default function Home() {
       setWidgets(data.widgets.filter((x) => x.name === "Banner Upload"));
     }
 
-    // async function hasPromo() {
-    //   const { data } = await acfApi.get("/");
+    async function getFeaturedCategory() {
+      const { data } = await api.get("/categories?per_page=50");
+      setFeatured(data.filter((x) => x.acf.destaque)[0]);
+    }
 
-    //   if (data) {
-    //     data.forEach((dt) => {
-    //       if (dt.acf.promo_status !== "Encerrada") {
-    //         console.log(dt);
-    //         setPromo(dt.id);
-    //       }
-    //     });
-    //   }
-    // }
-
-    loadSidebar();
-    //hasPromo();
+    loadBanners();
+    getPromo();
+    getFeaturedCategory();
   }, []);
 
   return (
@@ -84,15 +111,22 @@ export default function Home() {
       </ModuleContainer>
       <ModuleContainer>
         <div className="midias-sociais">
-          {/* <YouTubeCard /> */}
           <div style={{ width: "380px" }}>
-            <Category
-              key={12}
-              id={12}
-              nome={"Infantil"}
-              color={(props) => props.theme.lightBlue}
-              slug={"infantil"}
-            />
+            {promocoes && promocoes[0] ? (
+              <PromoCard data={promocoes} />
+            ) : featured && featured.id ? (
+              <Category
+                key={featured.id}
+                id={featured.id}
+                nome={featured.name}
+                color={
+                  EstiloCategorias.filter((c) => c.id === featured.id)[0].cor
+                }
+                slug={featured.slug}
+              />
+            ) : (
+              <div />
+            )}
           </div>
           <InstagramCard />
           <FacebookCard />

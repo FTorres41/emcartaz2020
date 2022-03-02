@@ -118,6 +118,22 @@ const CategoriasHeader = [
     slug: "variedades",
     parent: 0,
   },
+  {
+    id: 66681,
+    description: "Matérias publicadas sobre eventos Geek no portal Em Cartaz",
+    link: "http://www.emcartaz.net/category/geek/",
+    name: "Geek",
+    slug: "geek",
+    parent: 0,
+  },
+  {
+    id: 68571,
+    description: "Matérias publicadas sobre Natal no portal Em Cartaz",
+    link: "http://www.emcartaz.net/category/natal/",
+    name: "Natal",
+    slug: "natal",
+    parent: 0,
+  },
 ];
 
 export default CategoriasHeader;

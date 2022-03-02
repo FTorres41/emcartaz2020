@@ -8,10 +8,12 @@ import AboutColumnsPage from "./pages/AboutColumns";
 import ContactPage from "./pages/Contact";
 import ColumnistsPage from "./pages/Columnists";
 import SearchPage from "./pages/Search";
+import PromocaoPage from "./pages/Promocao";
 
 export default function Routes() {
   return (
     <Switch>
+      <Route component={PromocaoPage} path="/promocao/:promoId" />
       <Route component={SearchPage} path="/busca/:busca" />
       <Route component={ColumnistsPage} path='/colunas-em-cartaz' />
       <Route component={CategoryPage} path="/:categoria/:catId/pagina/:pagina" />

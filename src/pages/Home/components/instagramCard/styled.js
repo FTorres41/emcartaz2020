@@ -35,4 +35,5 @@ export const Card = styled.div`
   height: 400px;
   background-image: url(${EmCartazInstagram});
   background-size: contain;
+  background-repeat:no-repeat;
 `
